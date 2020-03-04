@@ -1,0 +1,27 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "停车缴费",
+      "iconPath": "images/park.png",
+      "selectedIconPath": "images/park-actived.png"
+    }, {
+      "pagePath": "pages/logs/logs",
+      "text": "会员专区",
+      "iconPath": "images/vip.png",
+      "selectedIconPath": "images/vip-actived.png"
+    }]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
