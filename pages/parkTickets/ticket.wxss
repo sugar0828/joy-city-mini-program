@@ -1,0 +1,9 @@
+/* pages/parTickets/ticket.wxss */
+.remove-border-cls .van-cell:after {
+  border-bottom: none;
+}
+.use-btn-cls {
+  padding-bottom: 10px;
+  text-align: right;
+  padding-right: 10px;
+}

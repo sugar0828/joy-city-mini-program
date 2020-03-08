@@ -1,0 +1,4 @@
+/* pages/costRecords/index.wxss */
+.value-class {
+  color: black;
+}

@@ -1,0 +1,25 @@
+{
+  "name": "joy-city-mini-program",
+  "version": "1.0.0",
+  "description": "joy city project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sugar0828/joy-city-mini-program.git"
+  },
+  "keywords": [
+    "joycity"
+  ],
+  "author": "sugar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sugar0828/joy-city-mini-program/issues"
+  },
+  "homepage": "https://github.com/sugar0828/joy-city-mini-program#readme",
+  "dependencies": {
+    "@vant/weapp": "^1.0.7"
+  }
+}

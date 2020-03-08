@@ -1,6 +1,9 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/parkTickets/ticket",
+    "pages/costRecords/index",
+    "pages/parkInfo/park",
     "pages/logs/logs"
   ],
   "window": {
@@ -10,18 +13,36 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "list": [{
-      "pagePath": "pages/index/index",
-      "text": "停车缴费",
-      "iconPath": "images/park.png",
-      "selectedIconPath": "images/park-actived.png"
-    }, {
-      "pagePath": "pages/logs/logs",
-      "text": "会员专区",
-      "iconPath": "images/vip.png",
-      "selectedIconPath": "images/vip-actived.png"
-    }]
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "停车缴费",
+        "iconPath": "images/park.png",
+        "selectedIconPath": "images/park-actived.png"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "会员专区",
+        "iconPath": "images/vip.png",
+        "selectedIconPath": "images/vip-actived.png"
+      }
+    ]
   },
-  "style": "v2",
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "van-button": "@vant/weapp/button",
+    "van-action-sheet": "@vant/weapp/action-sheet",
+    "van-icon": "@vant/weapp/icon",
+    "van-image": "@vant/weapp/image",
+    "van-dialog": "@vant/weapp/dialog",
+    "van-row": "@vant/weapp/row",
+    "van-col": "@vant/weapp/col",
+    "van-grid": "@vant/weapp/grid",
+    "van-grid-item": "@vant/weapp/grid-item",
+    "van-divider": "/@vant/weapp/divider",
+    "van-field": "@vant/weapp/field",
+    "van-cell": "/@vant/weapp/cell",
+    "van-cell-group": "@vant/weapp/cell-group",
+    "van-panel": "@vant/weapp/panel"
+  }
 }

@@ -1,0 +1,28 @@
+<view class="container">
+
+  <view class="info-panel">
+    <text>请确认照片中的车辆信息，误替他人交费将使您的车辆无法正常离场。</text>
+  </view>
+
+  <van-cell-group>
+    <van-field value="{{ comeTime }}" label="进场时间" readonly="true" border="{{ false }}" />
+    <van-field value="{{ parkCost }}" label="泊车费" readonly="true" border="{{ false }}" />
+  </van-cell-group>
+
+  <van-image
+  width="100"
+  height="100"
+  src="https://img.yzcdn.cn/vant/cat.jpeg"
+/>
+
+  <van-cell-group>
+    <van-field value="3小时免费泊车券" label="停车券抵用：" readonly="true" border="{{ true }}" error="{{true}}" />
+    <van-field value="100积分" label="积分抵扣：" readonly="true" border="{{ true }}" error="{{true}}" />
+    <van-field value="0元" label="微信支付：" readonly="true" border="{{ true }}" error="{{true}}" />
+  </van-cell-group>
+
+    <view class="bottom-top-padding">
+    <van-button type="primary" bind:click="toParkRecord">现在缴费</van-button>
+  </view>
+
+</view>

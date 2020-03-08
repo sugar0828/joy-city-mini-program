@@ -1,13 +1,39 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+
+  <van-grid clickable column-num="2" class="full-width">
+    <van-grid-item icon="coupon-o" link-type="navigateTo" url="/pages/parkTickets/ticket" text="电子停车券" />
+    <van-grid-item icon="balance-list-o" link-type="navigateTo" url="/pages/costRecords/index" text="缴费记录" />
+  </van-grid>
+
+  <view class="info-panel">
+    <text>可用免费泊车券和会员积分抵扣泊车费，在线支付完成后您有20分钟的取车出场时间。</text>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+
+  <view class="full-width">
+    <view class="center-cls">请输入您的车牌号:</view>
+    <view>
+      <van-cell-group>
+        <van-field value="{{ carNo }}" clearable label="车牌号" placeholder="请输入完整车牌号" />
+      </van-cell-group>
+    </view>
   </view>
+
+  <view class="bottom-top-padding">
+    <van-button type="primary" bind:click="checkCost">查询缴费金额</van-button>
+  </view>
+
+  <view class="bottom-top-padding">
+    <van-button type="primary" bind:click="toParkRecord">有停车记录</van-button>
+  </view>
+
+  <view class="info-panel">
+    <text>消费满58元可领3小时免费泊车券一张，请将购物小票完整拍照上传，客服验证通过后自动发送，商场营业期间（10点至22点）验证，估计需要5-10分钟，此券当日有效......</text>
+  </view>
+
+  <view class="bottom-top-padding">
+    <van-button type="primary">拍照上传小票</van-button>
+  </view>
+
+  <van-dialog id="van-dialog" />
 </view>
