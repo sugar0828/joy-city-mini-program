@@ -9,11 +9,7 @@
     <van-field value="{{ parkCost }}" label="泊车费" readonly="true" border="{{ false }}" />
   </van-cell-group>
 
-  <van-image
-  width="100"
-  height="100"
-  src="https://img.yzcdn.cn/vant/cat.jpeg"
-/>
+  <van-image width="100" height="100" src="https://img.yzcdn.cn/vant/cat.jpeg" />
 
   <van-cell-group>
     <van-field value="3小时免费泊车券" label="停车券抵用：" readonly="true" border="{{ true }}" error="{{true}}" />
@@ -21,7 +17,7 @@
     <van-field value="0元" label="微信支付：" readonly="true" border="{{ true }}" error="{{true}}" />
   </van-cell-group>
 
-    <view class="bottom-top-padding">
+  <view class="bottom-top-padding">
     <van-button type="primary" bind:click="toParkRecord">现在缴费</van-button>
   </view>
 

@@ -1,0 +1,11 @@
+/* pages/vip/vip.wxss */
+.fast-buy-section {
+  background-color: #f7f8fa;
+}
+.grid-row-gutter .van-grid {
+  margin-bottom: 4px;
+}
+.goods-name {
+  margin-top: 10px;
+  color: #333;
+}

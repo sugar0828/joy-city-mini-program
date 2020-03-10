@@ -1,0 +1,5 @@
+/* pages/vipInfo/index.wxss */
+.vip-info-section {
+  margin: 10px 0;
+  padding: 0 40px;
+}

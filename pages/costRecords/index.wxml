@@ -1,6 +1,6 @@
 <view class="container">
   <view class="full-width">
-    <van-divider />
+    <van-divider class="margin0-cls" />
     <van-row class="padding-side">
       <van-col span="10" offset="1">车牌尾号</van-col>
       <van-col span="12" class="right-text-cls">BH003Y</van-col>
@@ -17,7 +17,7 @@
       <van-col span="10" offset="1">缴费时间</van-col>
       <van-col span="12" class="right-text-cls">2020-1-2 12:12:12</van-col>
     </van-row>
-    <van-divider />
+    <van-divider class="margin0-cls" />
   </view>
 
   <view class="full-width">
@@ -37,7 +37,7 @@
       <van-col span="10" offset="1">积分抵用</van-col>
       <van-col span="12" class="right-text-cls">100积分</van-col>
     </van-row>
-    <van-divider />
+    <van-divider class="margin0-cls" />
   </view>
 
 </view>

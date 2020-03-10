@@ -4,7 +4,11 @@
     "pages/parkTickets/ticket",
     "pages/costRecords/index",
     "pages/parkInfo/park",
-    "pages/logs/logs"
+    "pages/vip/vip",
+    "pages/vipInfo/index",
+    "pages/waitingList/wait",
+    "pages/gift/gift",
+    "pages/points/points"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -21,7 +25,7 @@
         "selectedIconPath": "images/park-actived.png"
       },
       {
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/vip/vip",
         "text": "会员专区",
         "iconPath": "images/vip.png",
         "selectedIconPath": "images/vip-actived.png"
@@ -30,19 +34,19 @@
   },
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
-    "van-button": "@vant/weapp/button",
-    "van-action-sheet": "@vant/weapp/action-sheet",
-    "van-icon": "@vant/weapp/icon",
-    "van-image": "@vant/weapp/image",
-    "van-dialog": "@vant/weapp/dialog",
-    "van-row": "@vant/weapp/row",
-    "van-col": "@vant/weapp/col",
-    "van-grid": "@vant/weapp/grid",
-    "van-grid-item": "@vant/weapp/grid-item",
-    "van-divider": "/@vant/weapp/divider",
-    "van-field": "@vant/weapp/field",
-    "van-cell": "/@vant/weapp/cell",
-    "van-cell-group": "@vant/weapp/cell-group",
-    "van-panel": "@vant/weapp/panel"
+    "van-button": "/miniprogram_npm/@vant/weapp/button/index",
+    "van-action-sheet": "/miniprogram_npm/@vant/weapp/action-sheet/index",
+    "van-icon": "/miniprogram_npm/@vant/weapp/icon/index",
+    "van-image": "/miniprogram_npm/@vant/weapp/image/index",
+    "van-dialog": "/miniprogram_npm/@vant/weapp/dialog/index",
+    "van-row": "/miniprogram_npm/@vant/weapp/row/index",
+    "van-col": "/miniprogram_npm/@vant/weapp/col/index",
+    "van-grid": "/miniprogram_npm/@vant/weapp/grid/index",
+    "van-grid-item": "/miniprogram_npm/@vant/weapp/grid-item/index",
+    "van-divider": "/miniprogram_npm/@vant/weapp/divider/index",
+    "van-field": "/miniprogram_npm/@vant/weapp/field/index",
+    "van-cell": "/miniprogram_npm/@vant/weapp/cell/index",
+    "van-cell-group": "/miniprogram_npm/@vant/weapp/cell-group/index",
+    "van-panel": "/miniprogram_npm/@vant/weapp/panel/index"
   }
 }

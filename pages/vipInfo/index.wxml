@@ -1,0 +1,23 @@
+<view>
+  <view class="full-width" style="text-align: center;">
+    <image width="100%" src="https://img.yzcdn.cn/vant/cat.jpeg"></image>
+  </view>
+
+  <view class="vip-info-section">
+    <view class="full-width">
+      <van-cell-group>
+        <van-field value="12345" title-width="120px" label="会员卡号" readonly="{{true}}" />
+      </van-cell-group>
+      <van-cell-group>
+        <van-field value="shysoon" title-width="120px" label="姓名" readonly="{{true}}" />
+      </van-cell-group>
+      <van-cell-group>
+        <van-field value="18899990000" title-width="120px" label="手机" readonly="{{true}}" />
+      </van-cell-group>
+      <van-cell-group>
+        <van-field value="巴西热带雨林" title-width="120px" label="联系地址" readonly="{{true}}" />
+      </van-cell-group>
+    </view>
+  </view>
+
+</view>

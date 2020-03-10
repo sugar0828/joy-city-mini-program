@@ -1,0 +1,16 @@
+<view>
+  <view style="text-align: center; margin-top: 50px;">
+    <button style="width: 80px; " type="primary" bindtap="takePhoto">拍照</button>
+  </view>
+
+  <view style="text-align: center; margin-top: 50px;">
+    <image wx:if="{{photo}}" mode="widthFix" src="{{photo}}"></image>
+  </view>
+
+  <van-divider />
+
+  <view style="padding: 10px 30px; color: #bbb;">
+    <text>提示：点击上方拍照上传小票，上传成功后等待克服审核，审核通过后积分计入会员账户</text>
+  </view>
+
+</view>

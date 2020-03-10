@@ -34,3 +34,8 @@
 .font-size-12 {
   font-size: 13px;
 }
+
+/* reset vant css */
+.margin0-cls .van-divider {
+  margin: 0;
+}

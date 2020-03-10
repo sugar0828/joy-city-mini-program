@@ -1,0 +1,50 @@
+<view>
+  <view class="full-width" style="text-align: center;">
+    <image width="100%" src="https://img.yzcdn.cn/vant/cat.jpeg" mode="scaleToFill"></image>
+  </view>
+  <van-grid border="{{false}}">
+    <van-grid-item icon="manager-o" text="会员资料" link-type="navigateTo" url="/pages/vipInfo/index" />
+    <van-grid-item icon="description" text="待领列表" link-type="navigateTo" url="/pages/waitingList/wait" />
+    <van-grid-item icon="gift-o" link-type="navigateTo" url="/pages/gift/gift" text="积分抽奖" />
+    <van-grid-item icon="points" link-type="navigateTo" url="/pages/points/points" text="自助积分" />
+  </van-grid>
+
+  <van-divider contentPosition="center">限时抢购</van-divider>
+
+  <view class="full-width fast-buy-section">
+    <van-grid clickable column-num="2" gutter="4" border="{{false}}" class="grid-row-gutter">
+      <van-grid-item use-slot>
+        <image style="width: 100%;" src="https://img.yzcdn.cn/vant/apple-1.jpg" />
+        <text class="goods-name">商品名称</text>
+      </van-grid-item>
+      <van-grid-item use-slot>
+        <image style="width: 100%;" src="https://img.yzcdn.cn/vant/apple-2.jpg" />
+        <text class="goods-name">商品名称</text>
+      </van-grid-item>
+    </van-grid>
+
+    <van-grid clickable column-num="2" gutter="4" border="{{false}}" class="grid-row-gutter">
+      <van-grid-item use-slot>
+        <image style="width: 100%;" src="https://img.yzcdn.cn/vant/apple-1.jpg" />
+        <text class="goods-name">商品名称</text>
+      </van-grid-item>
+      <van-grid-item use-slot>
+        <image style="width: 100%;" src="https://img.yzcdn.cn/vant/apple-2.jpg" />
+        <text class="goods-name">商品名称</text>
+      </van-grid-item>
+    </van-grid>
+
+    <van-grid clickable column-num="2" gutter="4" border="{{false}}" class="grid-row-gutter">
+      <van-grid-item use-slot>
+        <image style="width: 100%;" src="https://img.yzcdn.cn/vant/apple-1.jpg" />
+        <text class="goods-name">商品名称</text>
+      </van-grid-item>
+      <van-grid-item use-slot>
+        <image style="width: 100%;" src="https://img.yzcdn.cn/vant/apple-2.jpg" />
+        <text class="goods-name">商品名称</text>
+      </van-grid-item>
+    </van-grid>
+  </view>
+
+
+</view>
