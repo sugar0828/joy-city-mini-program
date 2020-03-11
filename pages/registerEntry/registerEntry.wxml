@@ -1,0 +1,23 @@
+<view>
+  <view class="full-width" style="text-align: center;">
+    <image width="100%" src="https://img.yzcdn.cn/vant/cat.jpeg"></image>
+  </view>
+
+  <view style="padding: 10px">
+    <view class="vip-desc">
+      <text>会员可享有以下特权</text>
+    </view>
+    <van-panel title="积分停车" desc="200积分兑换一小时停车"></van-panel>
+    <van-panel title="自助积分" desc="拍照上传小票自助积分"></van-panel>
+    <van-panel title="积分兑换" desc="使用积分兑换礼品"></van-panel>
+  </view>
+
+  <view class="vip-btn">
+  <van-button type="primary" size="large" block bind:click="goToRegister" class="register-btn">成为会员</van-button>
+  </view>
+
+  <view class="not-register-btn">
+  <van-button plain type="primary" block>暂不注册</van-button>  
+  </view>
+
+</view>

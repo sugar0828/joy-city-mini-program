@@ -34,7 +34,12 @@
 .font-size-12 {
   font-size: 13px;
 }
-
+.bgcolor {
+  background-color: #f7f8fa;
+}
+.padding20 {
+  padding: 10px 20px;
+}
 /* reset vant css */
 .margin0-cls .van-divider {
   margin: 0;

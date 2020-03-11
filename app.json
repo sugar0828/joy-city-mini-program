@@ -8,7 +8,10 @@
     "pages/vipInfo/index",
     "pages/waitingList/wait",
     "pages/gift/gift",
-    "pages/points/points"
+    "pages/points/points",
+    "pages/registerEntry/registerEntry",
+    "pages/register/register",
+    "pages/pointDesc/pointDesc"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -29,6 +32,12 @@
         "text": "会员专区",
         "iconPath": "images/vip.png",
         "selectedIconPath": "images/vip-actived.png"
+      },
+      {
+        "pagePath": "pages/registerEntry/registerEntry",
+        "text": "非会员",
+        "iconPath": "images/vip.png",
+        "selectedIconPath": "images/vip-actived.png"
       }
     ]
   },
@@ -47,6 +56,9 @@
     "van-field": "/miniprogram_npm/@vant/weapp/field/index",
     "van-cell": "/miniprogram_npm/@vant/weapp/cell/index",
     "van-cell-group": "/miniprogram_npm/@vant/weapp/cell-group/index",
-    "van-panel": "/miniprogram_npm/@vant/weapp/panel/index"
+    "van-panel": "/miniprogram_npm/@vant/weapp/panel/index",
+    "van-radio": "/miniprogram_npm/@vant/weapp/radio/index",
+    "van-radio-group": "/miniprogram_npm/@vant/weapp/radio-group/index",
+    "van-toast": "/miniprogram_npm/@vant/weapp/toast/index"
   }
 }
