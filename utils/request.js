@@ -1,8 +1,7 @@
-// import { login } from '../api/info'
+import { getOpenid } from '../api/api'
 
 const config = {
   APP_ID: 'wxe78571878ff448db',
-  SYSTEM_CODE: 'FACEPAY-MALL',
   SERVICE_URL: 'https://bis.yzjoycity.com/api'
 }
 
@@ -19,13 +18,21 @@ const whiteList = [
  * @returns {Promise}
  */
 const request = async (url, params, options) => {
-
+  const openid = wx.getStorageSync('openid')
+  /* if (!openid) {
+    const loginCode = wx.getStorageSync('loginCode')
+    getOpenid(loginCode).then(res => {
+      if (res.success) {
+        wx.setStorageSync('openid', res.data.openid)
+      }
+    })
+  } */
   // 必要参数注入 header
-  /* const header = {
-    BoundContext: config.SYSTEM_CODE,
-    ...options.header
+  const header = {
+     token: openid,
+      ...options.header
   };
-
+  /*
   if (whiteList.findIndex(i => {return i === url}) === -1) {
     let token = wx.getStorageSync('token')
     if (!token) {
@@ -46,7 +53,6 @@ const request = async (url, params, options) => {
     wx.request({
       url: config.SERVICE_URL + url,
       data: params,
-      // header: header,
       method: options.method || 'GET',
       success(res) {
         const isSuccess = isHttpSuccess(res.statusCode);
@@ -78,7 +84,8 @@ const request = async (url, params, options) => {
       complete() {
         wx.hideLoading()
       },
-      ...options
+      ...options,
+      header: header
     });
   })
 }
