@@ -1,1 +1,33 @@
-/* pages/pointDesc/pointDesc.wxss */
+.indent-cls {
+  text-indent: 2rem;
+}
+.point-flex {
+  display: flex;
+  border-top: 1px solid #666;
+  border-left: 1px solid #666;
+  border-right: 1px solid #666;
+}
+.point-left {
+  width: 70%;
+  padding: 10rpx;
+  border-right: 1px solid #666;
+}
+.point-right {
+  padding: 10rpx;
+  width: 30%;
+  text-align: center;
+}
+.point-head {
+  font-weight: bold;
+  text-align: center;
+}
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+.indent4-cls {
+  text-indent: 4rem;
+}
+.stress {
+  color: crimson;
+}

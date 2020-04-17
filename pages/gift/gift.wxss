@@ -1,1 +1,6 @@
-/* pages/gift/gift.wxss */
+.calendar {
+  --calendar-height: 500px;
+}
+.sign {
+  width: 350rpx;
+}

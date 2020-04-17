@@ -14,6 +14,17 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const checkOpenid = () => {
+  const openid = wx.getStorageSync('openid')
+  if (!openid) { // has been registed
+    wx.redirectTo({
+      url: '/pages/registerEntry/registerEntry',
+    })
+  }
+}
+
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  checkOpenid
 }

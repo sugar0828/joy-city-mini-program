@@ -1,1 +1,6 @@
-/* pages/waitingList/wait.wxss */
+.gift-list {
+  line-height: 4;
+  font-size: 40rpx;
+  text-align: center;
+  color: darkgray;
+}

@@ -20,6 +20,6 @@
   },
   "homepage": "https://github.com/sugar0828/joy-city-mini-program#readme",
   "dependencies": {
-    "@vant/weapp": "^1.0.7"
+    "@vant/weapp": "^1.2.1"
   }
 }

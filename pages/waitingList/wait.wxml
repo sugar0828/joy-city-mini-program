@@ -1,2 +1,5 @@
-<!--pages/waitingList/wait.wxml-->
-<text>待领列表</text>
+<view>
+  <view style="text-align: center;">
+    <text class="gift-list">暂无礼品可领取</text>
+  </view>
+</view>

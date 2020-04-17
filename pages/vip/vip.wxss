@@ -1,4 +1,6 @@
-/* pages/vip/vip.wxss */
+.main-container {
+  padding: 10rpx;
+}
 .fast-buy-section {
   background-color: #f7f8fa;
 }
@@ -8,4 +10,19 @@
 .goods-name {
   margin-top: 10px;
   color: #333;
+}
+
+/*no register*/
+.vip-desc {
+  text-align: center; 
+  margin-bottom: 10px;
+}
+.vip-btn {
+  padding: 20px 50px 10px 50px;
+}
+.register-btn {
+  margin-bottom: 10px;
+}
+.not-register-btn {
+  padding: 0 50px;
 }

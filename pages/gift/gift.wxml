@@ -1,2 +1,17 @@
-<!--pages/gift/gift.wxml-->
-<text>pages/gift/gift.wxml</text>
+<view>
+  <van-calendar
+    show="{{ true }}"
+    type="multiple"
+    poppable="{{ false }}"
+    show-confirm="{{ false }}"
+    min-date="{{ minDate }}"
+    max-date="{{ maxDate }}"
+    default-date="{{[3]}}"
+    formatter="{{formatter}}"
+    show-title="{{false}}"
+    color="#07c160"
+    class="calendar"
+  />
+  <button type="primary" class="sign">立即签到</button>
+
+</view>

@@ -24,41 +24,35 @@
       {
         "pagePath": "pages/index/index",
         "text": "停车缴费",
-        "iconPath": "images/park.png",
-        "selectedIconPath": "images/park-actived.png"
+        "iconPath": "images/carFee.png",
+        "selectedIconPath": "images/carFeeActived.png"
       },
       {
         "pagePath": "pages/vip/vip",
         "text": "会员专区",
         "iconPath": "images/vip.png",
-        "selectedIconPath": "images/vip-actived.png"
-      },
-      {
-        "pagePath": "pages/registerEntry/registerEntry",
-        "text": "非会员",
-        "iconPath": "images/vip.png",
-        "selectedIconPath": "images/vip-actived.png"
+        "selectedIconPath": "images/vipActived.png"
       }
     ]
   },
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
-    "van-button": "/miniprogram_npm/@vant/weapp/button/index",
-    "van-action-sheet": "/miniprogram_npm/@vant/weapp/action-sheet/index",
-    "van-icon": "/miniprogram_npm/@vant/weapp/icon/index",
-    "van-image": "/miniprogram_npm/@vant/weapp/image/index",
-    "van-dialog": "/miniprogram_npm/@vant/weapp/dialog/index",
-    "van-row": "/miniprogram_npm/@vant/weapp/row/index",
-    "van-col": "/miniprogram_npm/@vant/weapp/col/index",
-    "van-grid": "/miniprogram_npm/@vant/weapp/grid/index",
-    "van-grid-item": "/miniprogram_npm/@vant/weapp/grid-item/index",
-    "van-divider": "/miniprogram_npm/@vant/weapp/divider/index",
-    "van-field": "/miniprogram_npm/@vant/weapp/field/index",
-    "van-cell": "/miniprogram_npm/@vant/weapp/cell/index",
-    "van-cell-group": "/miniprogram_npm/@vant/weapp/cell-group/index",
-    "van-panel": "/miniprogram_npm/@vant/weapp/panel/index",
-    "van-radio": "/miniprogram_npm/@vant/weapp/radio/index",
-    "van-radio-group": "/miniprogram_npm/@vant/weapp/radio-group/index",
-    "van-toast": "/miniprogram_npm/@vant/weapp/toast/index"
+    "van-button": "@vant/weapp/button/index",
+    "van-action-sheet": "@vant/weapp/action-sheet/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-image": "@vant/weapp/image/index",
+    "van-dialog": "@vant/weapp/dialog/index",
+    "van-row": "@vant/weapp/row/index",
+    "van-col": "@vant/weapp/col/index",
+    "van-grid": "@vant/weapp/grid/index",
+    "van-grid-item": "@vant/weapp/grid-item/index",
+    "van-divider": "@vant/weapp/divider/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-panel": "@vant/weapp/panel/index",
+    "van-radio": "@vant/weapp/radio/index",
+    "van-radio-group": "@vant/weapp/radio-group/index",
+    "van-toast": "@vant/weapp/toast/index"
   }
 }

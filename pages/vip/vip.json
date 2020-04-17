@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "会员专区",
-  "usingComponents": {}
+  "usingComponents": {
+    "van-dialog": "@vant/weapp/dialog/index"
+  }
 }

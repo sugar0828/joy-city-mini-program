@@ -1,8 +1,15 @@
 //app.js
 App({
   onLaunch: function () {
+    // 登录
+    wx.login({
+      success: res => {
+        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        wx.setStorageSync('loginCode', res.code)
+      }
+    })
     // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
+    /* var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
@@ -31,9 +38,10 @@ App({
           })
         }
       }
-    })
+    }) */
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    loginCode: ''
   }
 })

@@ -1,66 +1,56 @@
-// pages/gift/gift.js
+
+// 时间处理 计算本月开始-结束日期
+const now = new Date()
+const nowYear = now.getFullYear()
+const nowMonth = now.getMonth()
+//获得某月的天数
+function getMonthDays(myMonth) {
+  var monthStartDate = new Date(nowYear, myMonth, 1);
+  var monthEndDate = new Date(nowYear, myMonth + 1, 1);
+  var days = (monthEndDate - monthStartDate) / (1000 * 60 * 60 * 24);
+  return days;
+}
+//获得本月的开始日期
+function getMonthStartDate() {
+  var monthStartDate = new Date(nowYear, nowMonth, 1);
+  return monthStartDate.getTime();
+}
+//获得本月的结束日期
+function getMonthEndDate() {
+  var monthEndDate = new Date(nowYear, nowMonth, getMonthDays(nowMonth));
+  return monthEndDate.getTime();
+}
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    minDate: getMonthStartDate(),
+    maxDate: getMonthEndDate(),
+    formatter(day) {
+      const date = day.date.getDate();
+      const signList = [2, 3, 7]
+      if (signList.includes(date) ) {
+        day.type = 'selected'
+        day.bottomInfo = '已签到'
+      } else {
+        day.type = 'disabled'
+      }
+      return day
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
 
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
+  onConfirm(event) {
+    console.log(event);
+    
+  },
   onReady: function () {
 
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
 
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
   onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
 
   }
 })

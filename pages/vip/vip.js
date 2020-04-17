@@ -1,66 +1,40 @@
 // pages/vip/vip.js
+import Dialog from '@vant/weapp/dialog/dialog'
+const openid = wx.getStorageSync('openid')
+console.log(openid)
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    avatarUrl: '',
+    nickName: '',
+    openid
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
+  onShow() {
+    this.setData({
+      openid: wx.getStorageSync('openid')
+    })
+  },
   onLoad: function (options) {
-
+    this.setData({
+      openid: wx.getStorageSync('openid')
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  bindGetUserInfo(e) {
+    const {
+      userInfo,
+      rawData,
+      signature,
+      encryptedData,
+      iv
+    } = e.detail
+    this.setData({
+      avatarUrl: userInfo.avatarUrl,
+      nickName: userInfo.nickName
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  goToRegister() {
+    wx.redirectTo({
+      url: '/pages/register/register',
+    })
   }
 })

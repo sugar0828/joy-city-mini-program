@@ -1,1 +1,6 @@
-/* pages/register/register.wxss */
+.avatar-img {
+  width: 90rpx;
+  height: 90rpx;
+  font-size: 30px;
+  color: darkgrey;
+}

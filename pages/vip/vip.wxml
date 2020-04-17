@@ -1,50 +1,74 @@
-<view>
-  <view class="full-width" style="text-align: center;">
-    <image width="100%" src="https://img.yzcdn.cn/vant/cat.jpeg" mode="scaleToFill"></image>
-  </view>
-  <van-grid border="{{false}}">
-    <van-grid-item icon="manager-o" text="会员资料" link-type="navigateTo" url="/pages/vipInfo/index" />
-    <van-grid-item icon="description" text="待领列表" link-type="navigateTo" url="/pages/waitingList/wait" />
-    <van-grid-item icon="gift-o" link-type="navigateTo" url="/pages/gift/gift" text="积分抽奖" />
-    <van-grid-item icon="points" link-type="navigateTo" url="/pages/points/points" text="自助积分" />
-  </van-grid>
+<view class="main-container">
+	<!-- vip 已注册 -->
+	<view id="vip" wx:if="{{openid}}">
+		<view class="full-width" style="text-align: center;">
+			<image width="100%" src="https://img.yzcdn.cn/vant/cat.jpeg" mode="scaleToFill"></image>
+		</view>
+		<van-grid border="{{false}}">
+			<van-grid-item icon="manager-o" text="会员资料" link-type="navigateTo" url="/pages/vipInfo/index" />
+			<van-grid-item icon="description" text="待领列表" link-type="navigateTo" url="/pages/waitingList/wait" />
+			<van-grid-item icon="gift-o" link-type="navigateTo" url="/pages/gift/gift" text="签到领积分" />
+			<van-grid-item icon="points" link-type="navigateTo" url="/pages/points/points" text="自助积分" />
+		</van-grid>
 
-  <van-divider contentPosition="center">限时抢购</van-divider>
+		<van-divider contentPosition="center">限时抢购</van-divider>
 
-  <view class="full-width fast-buy-section">
-    <van-grid clickable column-num="2" gutter="4" border="{{false}}" class="grid-row-gutter">
-      <van-grid-item use-slot>
-        <image style="width: 100%;" src="https://img.yzcdn.cn/vant/apple-1.jpg" />
-        <text class="goods-name">商品名称</text>
-      </van-grid-item>
-      <van-grid-item use-slot>
-        <image style="width: 100%;" src="https://img.yzcdn.cn/vant/apple-2.jpg" />
-        <text class="goods-name">商品名称</text>
-      </van-grid-item>
-    </van-grid>
+		<view class="full-width fast-buy-section">
+			<van-grid clickable column-num="2" gutter="4" border="{{false}}" class="grid-row-gutter">
+				<van-grid-item use-slot>
+					<image style="width: 100%;" src="https://img.yzcdn.cn/vant/apple-1.jpg" />
+					<text class="goods-name">商品名称</text>
+				</van-grid-item>
+				<van-grid-item use-slot>
+					<image style="width: 100%;" src="https://img.yzcdn.cn/vant/apple-2.jpg" />
+					<text class="goods-name">商品名称</text>
+				</van-grid-item>
+			</van-grid>
 
-    <van-grid clickable column-num="2" gutter="4" border="{{false}}" class="grid-row-gutter">
-      <van-grid-item use-slot>
-        <image style="width: 100%;" src="https://img.yzcdn.cn/vant/apple-1.jpg" />
-        <text class="goods-name">商品名称</text>
-      </van-grid-item>
-      <van-grid-item use-slot>
-        <image style="width: 100%;" src="https://img.yzcdn.cn/vant/apple-2.jpg" />
-        <text class="goods-name">商品名称</text>
-      </van-grid-item>
-    </van-grid>
+			<van-grid clickable column-num="2" gutter="4" border="{{false}}" class="grid-row-gutter">
+				<van-grid-item use-slot>
+					<image style="width: 100%;" src="https://img.yzcdn.cn/vant/apple-1.jpg" />
+					<text class="goods-name">商品名称</text>
+				</van-grid-item>
+				<van-grid-item use-slot>
+					<image style="width: 100%;" src="https://img.yzcdn.cn/vant/apple-2.jpg" />
+					<text class="goods-name">商品名称</text>
+				</van-grid-item>
+			</van-grid>
 
-    <van-grid clickable column-num="2" gutter="4" border="{{false}}" class="grid-row-gutter">
-      <van-grid-item use-slot>
-        <image style="width: 100%;" src="https://img.yzcdn.cn/vant/apple-1.jpg" />
-        <text class="goods-name">商品名称</text>
-      </van-grid-item>
-      <van-grid-item use-slot>
-        <image style="width: 100%;" src="https://img.yzcdn.cn/vant/apple-2.jpg" />
-        <text class="goods-name">商品名称</text>
-      </van-grid-item>
-    </van-grid>
-  </view>
+			<van-grid clickable column-num="2" gutter="4" border="{{false}}" class="grid-row-gutter">
+				<van-grid-item use-slot>
+					<image style="width: 100%;" src="https://img.yzcdn.cn/vant/apple-1.jpg" />
+					<text class="goods-name">商品名称</text>
+				</van-grid-item>
+				<van-grid-item use-slot>
+					<image style="width: 100%;" src="https://img.yzcdn.cn/vant/apple-2.jpg" />
+					<text class="goods-name">商品名称</text>
+				</van-grid-item>
+			</van-grid>
+		</view>
 
+		<van-dialog id="van-dialog" />
+	</view>
 
+  <!--  no register 未注册 -->
+	<view id="noRegister" wx:if="{{!openid}}">
+		<view class="full-width" style="text-align: center;">
+			<image width="100%" src="https://img.yzcdn.cn/vant/cat.jpeg"></image>
+		</view>
+
+		<view style="padding: 10px">
+			<view class="vip-desc">
+				<text>会员可享有以下特权</text>
+			</view>
+			<van-panel title="积分停车" desc="200积分兑换一小时停车"></van-panel>
+			<van-panel title="自助积分" desc="拍照上传小票自助积分"></van-panel>
+			<van-panel title="积分兑换" desc="使用积分兑换礼品"></van-panel>
+		</view>
+
+		<view class="vip-btn">
+			<van-button type="primary" size="large" block bind:click="goToRegister" class="register-btn">成为会员</van-button>
+		</view>
+	</view>
+  
 </view>

@@ -1,2 +1,49 @@
-<!--pages/pointDesc/pointDesc.wxml-->
-<text>积分章程</text>
+<view style="padding: 30rpx; color: #333;">
+	<view style="font-size: 50rpx; text-align: center; line-height: 3;">会员积分章程</view>
+	<view class="indent-cls">为了让您更好的了解御龙湾会员积分优惠，并保护您的会员权益，敬请您仔细阅读会员章程。</view>
+	<view class="mt20 title">一、如何积分</view>
+	<view class="indent-cls">扬州御龙湾广场会员积分为可累计消费积分。</view>
+	<view class="indent-cls">1、打开扬州御龙湾广场官方小程序，进入“会员专区”，选择“自助积分”并拍照上传您当日消费凭证，经客服确认后24小时内到账。</view>
+	<view class="indent-cls">2、持当日消费凭证至一楼服务台补录积分。</view>
+	<view class="mt20 title">二、积分规则</view>
+	<view class="indent-cls">1、消费积分</view>
+	<view>
+		<view class="point-flex point-head">
+			<view class="point-left">业态性质</view>
+			<view class="point-right">积分规则</view>
+		</view>
+		<view class="point-flex">
+			<view class="point-left">零售类：服饰、家居、化妆、鞋类、食品类、床用日用等
+        <text class="stress">（小额消费）</text>
+      </view>
+			<view class="point-right">1元=1积分</view>
+		</view>
+		<view class="point-flex">
+			<view class="point-left">餐饮类</view>
+			<view class="point-right">5元=1积分</view>
+		</view>
+		<view class="point-flex" style="border-bottom: 1px solid #666;">
+			<view class="point-left">配套类：娱乐、教育、美容美发SPA、健身项目、黄金珠宝、家电、数码通信、钟表等<text class="stress">（大额消费）</text></view>
+			<view class="point-right">10元=1积分</view>
+		</view>
+	</view>
+
+	<view class="indent-cls">2、倍享积分</view>
+	<view class="indent-cls">扬州御龙湾广场不定期进行各类积分倍赠活动。</view>
+	<view class="indent-cls">3、签到积分</view>
+	<view class="indent-cls">在扬州御龙湾官方小程序会员专区进行签到可以获得积分，第一天积一分，第二天积两分以此类推，到第七天积七分，之后每天7分不再按日递增。</view>
+	<view class="mt20 title">三、会员权益</view>
+	<view class="indent-cls">1. 免费停车四小时、最新购物资讯、积分超值兑换、免费参加亲子活动。</view>
+	<view class="indent-cls">2. 积分抵扣时长：30分钟/100积分，1小时/200积分</view>
+	<view class="indent-cls">3. 租借服务：
+		<view class="indent4-cls">雨伞租借：押金100元/把</view>
+		<view class="indent4-cls">童车租借：押金500元/辆</view>
+		<view class="indent4-cls">轮椅租借：押金500元/辆</view>
+		<view class="stress">注：雨伞可以在七日内归还，其余均需当日归还。</view>
+	</view>
+	<view class="mt20 title">四、其他</view>
+	<view class="indent-cls">1、扬州御龙湾广场会员积分不可转增、不同会员积分不可累积使用。</view>
+	<view class="indent-cls">2、持卡会员的积分奖励资格由扬州御龙湾广场最终确认，非正常途径违规获取的积分用户，扬州御龙湾广场将有权冻结或终止会籍。</view>
+	<view class="indent-cls">3、申请并注册扬州御龙湾广场的会员视为已阅读并认可本协议全部内容。</view>
+
+</view>

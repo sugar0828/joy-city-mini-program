@@ -1,1 +1,13 @@
-/**index.wxss**/
+.card-select {
+  text-align: center;
+}
+.car-popup-header {
+  text-align: right; border-bottom: 1px solid #eee; padding: 30rpx 50rpx;
+  color: #1989fa;
+  display: flex;
+  justify-content: space-between;
+}
+.car-code {
+  font-size: 40rpx;
+  font-weight: bold;
+}

@@ -16,7 +16,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const openid = wx.getStorageSync('openid')
+    if (openid) { // has been registed
+      wx.navigateTo({
+        url: '/pages/vip/vip',
+      })
+    } else {
+      wx.getUserInfo({
+        success: (res) => {
+          this.setData({
+            userInfo: res.userInfo
+          })
+        },
+      })
+    }
   },
 
   /**

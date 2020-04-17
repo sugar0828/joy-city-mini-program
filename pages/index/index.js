@@ -2,11 +2,15 @@
 //获取应用实例
 const app = getApp()
 import Dialog from '@vant/weapp/dialog/dialog'
+import Toast from '@vant/weapp/toast/toast'
+import { checkOpenid } from './../../utils/util'
+
+const openid = wx.getStorageSync('openid')
 
 Page({
   data: {
     motto: '欢迎进入扬州御龙湾商业广场',
-    carNo: '苏C...',
+    carNo: '',
     show: false,
     actions: [
       {
@@ -20,7 +24,48 @@ Page({
         subname: '副文本',
         openType: 'getPhoneNumber'
       }
-    ]
+    ],
+    // car
+    carProvinceList: '苏浙京津沪陕冀豫云辽黑湘皖鲁新赣鄂桂甘晋蒙吉闽贵粤川青藏琼宁渝'.split(''),
+    carCityList: 'KABCDEFGHIJLMNOPQRSTUVWXYZ'.split(''),
+    carProvince: '苏',
+    carCity: 'K',
+    showCarProvince: false,
+    carCodeEnd: ''
+  },
+  onShowCarProvince() {
+    this.setData({
+      showCarProvince: true
+    })
+  },
+  onCloseCarProvince() {
+    this.setData({
+      showCarProvince: false
+    })
+  },
+  onCancelCarProvince() {
+    this.setData({
+      showCarProvince: false,
+      carProvince: '',
+      carCity: ''
+    })
+  },
+  onChangeCarCode(e) {
+    const val = e.detail
+    const valid = /^[0-9a-zA-Z]+$/.test(val)
+    if (!valid) {
+      Toast.fail('非法车牌号码')
+    }
+    this.setData({
+      carCodeEnd: val.toLocaleUpperCase()
+    })
+  },
+  onChangeCarProvinceAndCity: function (e) {
+    const val = e.detail.value
+    this.setData({
+      carProvince: this.data.carProvinceList[val[0]],
+      carCity: this.data.carCityList[val[1]]
+    })
   },
   checkCost() {
     Dialog.alert({
@@ -28,13 +73,23 @@ Page({
       message: '没有查到泊车信息，如号牌无误，请前往出口处人工缴费！'
     })
   },
-  toParkRecord() {
-    wx.navigateTo({
-      url: '/pages/parkInfo/park',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
-    })
+  onParkTickets() {
+    if (openid) {
+      wx.navigateTo({
+        url: '/pages/parkTickets/ticket'
+      })
+    } else {
+      checkOpenid()
+    }
+  },
+  onBalanceList() {
+    if (openid) {
+      wx.navigateTo({
+        url: '/pages/costRecords/index'
+      })
+    } else {
+      checkOpenid()
+    }
   },
   //事件处理函数
   bindViewTap: function() {
@@ -96,6 +151,11 @@ Page({
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
+    })
+  },
+  uploadPiao() {
+    wx.navigateTo({
+      url: '/pages/points/points',
     })
   }
 })
