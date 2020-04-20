@@ -1,1 +1,29 @@
-/* pages/parkInfo/park.wxss */
+.park-info {
+  text-align: center;
+}
+.park-info text {
+  font-size: 42rpx;
+  font-weight: bold;
+}
+.pay {
+  width: 450rpx;
+  margin-top: 50rpx;
+}
+.pay-info {
+  text-align: center;
+}
+.pay-info .pay-item {
+  line-height: 3;
+  border-top: 1px solid #eee;
+}
+.stress {
+  color: crimson;
+  font-weight: bold;
+}
+.inline-me {
+  display: inline;
+}
+.park-pic {
+  text-align: center;
+  margin: 30rpx 0;
+}

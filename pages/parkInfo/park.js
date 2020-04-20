@@ -1,67 +1,34 @@
-// pages/parkInfo/park.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    comeTime: '2020-1-10 10:13:25',
-    parkCost: '10元'
+    info: {
+      wxPayment: 0
+    },
+    user: wx.getStorageSync('user')
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
+  toParkRecord() {
+    wx.showToast({
+      title: '功能开发中...',
+      icon: 'none'
+    })
+  },
   onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    const parkInfo = wx.getStorageSync('parkInfo')
+    if (Object.keys(parkInfo).length) {
+      const time = parseFloat(parkInfo.freeTime)
+      const info = {
+        ...parkInfo,
+        hour: time / 60,
+        minutes: time % 60,
+        deductionIntegral: parseFloat(parkInfo.deductionIntegral)
+      }
+      this.setData({
+        info
+      })
+    } else {
+      wx.showToast({
+        title: res.msg,
+        icon: 'none'
+      })
+    }
   }
 })

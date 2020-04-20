@@ -1,5 +1,9 @@
 <view class="container">
-  <view class="info-panel">
+
+  <view style="text-align: center;">
+    <text class="gift-list">栏目开发中... 敬请期待</text>
+  </view>
+  <!-- <view class="info-panel">
     <text>消费满58元可领3小时免费泊车券一张，请将购物小票完整拍照上传，客服验证通过后自动发送，商场营业期间（10点至22点）验证，估计需要5-10分钟，此券当日有效，单次停车限用一张...</text>
   </view>
 
@@ -14,6 +18,6 @@
   <view class="full-width remove-border-cls">
     <van-panel title="3小时免费泊车券" desc="领取时间：xxxx-xx-xx 12:12:12" status="已使用">
     </van-panel>
-  </view>
+  </view> -->
 
 </view>

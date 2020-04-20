@@ -15,9 +15,33 @@ const register = data => {
 const getMemberInfo = () => {
   return request.get('/o2oMember/info')
 }
+
+const getFeeInfo = data => {
+  return request.post('/park/info', data) // plateNo
+}
+
+// 签到
+const sign = () => {
+  return request.post('/o2oMemberSign/sign')
+}
+
+// 查询签到
+const getSign = () => {
+  return request.get('/o2oMemberSign/info')
+}
+
+// 缴费记录
+const getFeeRecordsList = data => {
+  return request.post('/parkingPaymentRecord/page', data)
+}
+
 export {
   getOpenid,
   getPhone,
   register,
-  getMemberInfo
+  getMemberInfo,
+  getFeeInfo,
+  sign,
+  getSign,
+  getFeeRecordsList
 }

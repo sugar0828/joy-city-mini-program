@@ -6,12 +6,13 @@
     show-confirm="{{ false }}"
     min-date="{{ minDate }}"
     max-date="{{ maxDate }}"
-    default-date="{{[3]}}"
     formatter="{{formatter}}"
     show-title="{{false}}"
     color="#07c160"
     class="calendar"
   />
-  <button type="primary" class="sign">立即签到</button>
+  
+  <button wx:if="{{isSignedToday}}" disabled="{{true}}" type="primary" class="sign" bindtap="sign">今日已签到</button>
+  <button wx:else type="primary" class="sign" bindtap="sign">立即签到</button>
 
 </view>

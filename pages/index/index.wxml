@@ -10,35 +10,35 @@
     <text>可用免费泊车券和会员积分抵扣泊车费，在线支付完成后您有20分钟的取车出场时间。</text>
   </view>
 
-  <view class="full-width">
-    <view class="center-cls">请输入车牌号:
+  <view class="full-width car-code-section">
+    <view class="center-cls" style="margin-bottom: 50rpx;">车牌号:
       <text class="car-code">{{carProvince}}{{carCity}}</text>
       <text wx:if="{{carProvince}}">·</text>
       <text class="car-code">{{carCodeEnd}}</text>
     </view>
-    <van-cell title="选择车牌省份和城市" is-link bind:click="onShowCarProvince" />
+    <van-cell title="选择车牌省份和城市(发证机关)" is-link bind:click="onShowCarProvince" />
     <view>
       <van-cell-group>
-        <van-field value="{{ carNo }}" clearable label="车牌号" placeholder="请输入车牌号后面部分(字母+数字)" bind:change="onChangeCarCode" maxlength="8" required error />
+        <van-field value="{{ carCodeEnd }}" clearable label="车牌号" placeholder="请输入车牌号" bind:change="onChangeCarCode" maxlength="8" required error />
       </van-cell-group>
     </view>
   </view>
 
   <view class="bottom-top-padding">
-    <button type="primary" bind:click="checkCost" style="width: 350rpx;">查询缴费金额</button>
+    <button type="primary" bind:tap="checkCost" style="width: 350rpx;">查询缴费金额</button>
   </view>
 
 <!--   <view class="bottom-top-padding">
     <button type="primary" bind:click="toParkRecord">有停车记录</button>
   </view> -->
 
-  <view class="info-panel">
+<!--   <view class="info-panel">
     <text>消费满58元可领3小时免费泊车券一张，请将购物小票完整拍照上传，客服验证通过后自动发送，商场营业期间（10点至22点）验证，估计需要5-10分钟，此券当日有效，单次停车限用一张（如有异常请到一楼客服台现场领取）。御龙湾会员上月累计积分超过4次，本月每天自动赠送3小时免费泊车券一张。</text>
   </view>
 
   <view class="bottom-top-padding">
     <button type="primary" bindtap="uploadPiao" style="width: 350rpx;">拍照上传小票</button>
-  </view>
+  </view> -->
 
   <van-dialog id="van-dialog" />
   <van-toast id="van-toast" />
@@ -52,7 +52,7 @@
     <!-- 车牌选择 start -->
     <view class="car-popup-header">
       <text bindtap="onCancelCarProvince">取消</text>
-      <text bindtap="onCloseCarProvince">确定</text>
+      <text bindtap="onConfirmCarProvince">确定</text>
     </view>
     <view>
       <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="onChangeCarProvinceAndCity">

@@ -58,9 +58,17 @@
 .avatar image {
   width: 80rpx;
   height: 80rpx;
+  line-height: 70rpx;
   border: 1px solid #ccc;
   border-radius: 100%;
+  font-size: 50rpx;
 }
 .mt20 {
   margin-top: 20rpx;
+}
+.gift-list {
+  line-height: 4;
+  font-size: 40rpx;
+  text-align: center;
+  color: darkgray;
 }

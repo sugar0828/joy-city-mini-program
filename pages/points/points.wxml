@@ -1,5 +1,9 @@
 <view>
-  <view style="text-align: center; margin-top: 50px;">
+  <view style="text-align: center;">
+    <text class="gift-list">栏目开发中... 敬请期待</text>
+  </view>
+
+  <!-- <view style="text-align: center; margin-top: 50px;">
     <button style="width: 80px; " type="primary" bindtap="takePhoto">拍照</button>
   </view>
 
@@ -11,6 +15,6 @@
 
   <view style="padding: 10px 30px; color: #bbb;">
     <text>提示：点击上方拍照上传小票，上传成功后等待克服审核，审核通过后积分计入会员账户</text>
-  </view>
+  </view> -->
 
 </view>

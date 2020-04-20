@@ -151,7 +151,7 @@ component_1.VantComponent({
                 ];
             }
             if (type === 'multiple') {
-                return [defaultDate || minDate];
+                return defaultDate || [];
             }
             return defaultDate || minDate;
         },

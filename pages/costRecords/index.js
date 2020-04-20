@@ -1,18 +1,23 @@
-// pages/costRecords/index.js
+import { getFeeRecordsList } from '../../api/api'
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    total: 0,
+    records: []
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-
+    getFeeRecordsList({
+      current: 1,
+      page: 10
+    }).then(res => {
+      if (res.success) {
+        const { total = 0, records = [] } = res.data
+        this.setData({
+          total,
+          records
+        })
+      }
+    })
   },
 
   /**

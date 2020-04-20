@@ -1,24 +1,28 @@
-<view class="container">
+<view>
 
-  <view class="info-panel">
-    <text>请确认照片中的车辆信息，误替他人交费将使您的车辆无法正常离场。</text>
-  </view>
+	<view class="info-panel">
+		<text>请确认照片中的车辆信息，误替他人交费将使您的车辆无法正常离场。</text>
+	</view>
 
-  <van-cell-group>
-    <van-field value="{{ comeTime }}" label="进场时间" readonly="true" border="{{ false }}" />
-    <van-field value="{{ parkCost }}" label="泊车费" readonly="true" border="{{ false }}" />
-  </van-cell-group>
+	<view class="park-info">进场时间：{{info.entryTime}}</view>
+	<view class="park-info">泊车费：<text>{{info.payable / 100}}</text>元</view>
 
-  <van-image width="100" height="100" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+	<view class="park-pic">
+		<image src="{{info.imgName}}"></image>
+	</view>
 
-  <van-cell-group>
-    <van-field value="3小时免费泊车券" label="停车券抵用：" readonly="true" border="{{ true }}" error="{{true}}" />
-    <van-field value="100积分" label="积分抵扣：" readonly="true" border="{{ true }}" error="{{true}}" />
-    <van-field value="0元" label="微信支付：" readonly="true" border="{{ true }}" error="{{true}}" />
-  </van-cell-group>
+	<view class="pay-info">
+    <view wx:if="{{user.cellphone}}" class="pay-item">会员权益：
+			<view class="stress inline-me">
+			{{info.hour}}小时
+			<view wx:if="{{info.minutes}}" class="inline-me">{{info.minutes}}分钟</view>
+			免费泊车
+			</view>
+		</view>
+    <view class="pay-item" wx:if="{{ info.deductionIntegral > 0 }}">积分抵扣：<text class="stress">{{info.deductionIntegral}}</text></view>
+    <view class="pay-item">微信支付：<text class="stress">{{info.wxPayment / 100}}元</text></view>
+	</view>
 
-  <view class="bottom-top-padding">
-    <van-button type="primary" bind:click="toParkRecord">现在缴费</van-button>
-  </view>
+  <button type="primary" bindtap="toParkRecord" class="pay">现在缴费</button>
 
 </view>

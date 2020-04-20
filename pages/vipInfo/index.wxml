@@ -9,13 +9,17 @@
         <van-field value="{{info.memberCard}}" title-width="120px" label="会员卡号" readonly="{{true}}" />
       </van-cell-group>
       <van-cell-group>
+        <van-field value="{{info.points || 0}}" title-width="120px" label="当前积分" readonly="{{true}}" />
+      </van-cell-group>
+      <van-cell-group>
         <van-field value="{{info.name}}" title-width="120px" label="姓名" readonly="{{true}}" />
       </van-cell-group>
       <van-cell-group>
         <van-field value="{{info.cellphone}}" title-width="120px" label="手机" readonly="{{true}}" />
       </van-cell-group>
       <van-cell-group>
-        <van-field value="{{info.wxCountry}}-{{info.wxProvince}}-{{info.wxCity}}" title-width="120px" label="联系地址" readonly="{{true}}" />
+        <van-field wx:if="{{info.address}}" value="{{info.address}}" title-width="120px" label="联系地址" readonly="{{true}}" />
+        <van-field wx:else value="{{info.wxCountry}}-{{info.wxProvince}}-{{info.wxCity}}" title-width="120px" label="联系地址" readonly="{{true}}" />
       </van-cell-group>
     </view>
   </view>

@@ -1,31 +1,28 @@
 // pages/vip/vip.js
-import Dialog from '@vant/weapp/dialog/dialog'
 const openid = wx.getStorageSync('openid')
-console.log(openid)
+const phone = wx.getStorageSync('user') && wx.getStorageSync('user').cellphone
 
 Page({
   data: {
     avatarUrl: '',
     nickName: '',
-    openid
+    openid,
+    phone: ''
   },
   onShow() {
     this.setData({
-      openid: wx.getStorageSync('openid')
+      openid,
+      phone: wx.getStorageSync('user') && wx.getStorageSync('user').cellphone
     })
   },
   onLoad: function (options) {
     this.setData({
-      openid: wx.getStorageSync('openid')
+      openid
     })
   },
   bindGetUserInfo(e) {
     const {
-      userInfo,
-      rawData,
-      signature,
-      encryptedData,
-      iv
+      userInfo
     } = e.detail
     this.setData({
       avatarUrl: userInfo.avatarUrl,

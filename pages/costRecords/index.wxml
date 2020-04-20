@@ -1,5 +1,6 @@
-<view class="container">
-  <view class="full-width">
+<view>
+
+  <view wx:for="{{records}}" wx:key="index" class="full-width">
     <van-divider class="margin0-cls" />
     <van-row class="padding-side">
       <van-col span="10" offset="1">车牌尾号</van-col>

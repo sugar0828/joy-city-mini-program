@@ -4,13 +4,15 @@ const app = getApp()
 import Dialog from '@vant/weapp/dialog/dialog'
 import Toast from '@vant/weapp/toast/toast'
 import { checkOpenid } from './../../utils/util'
+import { getFeeInfo } from './../../api/api'
 
 const openid = wx.getStorageSync('openid')
+let _carCodeProvince = ''
+let _carCodeCity = ''
 
 Page({
   data: {
     motto: '欢迎进入扬州御龙湾商业广场',
-    carNo: '',
     show: false,
     actions: [
       {
@@ -43,11 +45,18 @@ Page({
       showCarProvince: false
     })
   },
+  onConfirmCarProvince() {
+    this.setData({
+      showCarProvince: false,
+      carProvince: _carCodeProvince,
+      carCity: _carCodeCity
+    })
+  },
   onCancelCarProvince() {
     this.setData({
       showCarProvince: false,
-      carProvince: '',
-      carCity: ''
+      carProvince: this.data.carProvince || wx.getStorageSync('carProvince') || '苏',
+      carCity: this.data.carCity || wx.getStorageSync('carCity') || 'K'
     })
   },
   onChangeCarCode(e) {
@@ -62,15 +71,36 @@ Page({
   },
   onChangeCarProvinceAndCity: function (e) {
     const val = e.detail.value
-    this.setData({
-      carProvince: this.data.carProvinceList[val[0]],
-      carCity: this.data.carCityList[val[1]]
-    })
+    _carCodeProvince = this.data.carProvinceList[val[0]]
+    _carCodeCity = this.data.carCityList[val[1]]
   },
   checkCost() {
-    Dialog.alert({
-      title: '提示',
-      message: '没有查到泊车信息，如号牌无误，请前往出口处人工缴费！'
+    if (!this.data.carCodeEnd) {
+      Dialog.alert({
+        title: '提示',
+        message: '请输入正确的车牌号！'
+      })
+      return
+    }
+    const { carProvince, carCity, carCodeEnd } = this.data
+    wx.setStorageSync('carCodeEnd', carCodeEnd)
+    wx.setStorageSync('carProvince', carProvince)
+    wx.setStorageSync('carCity', carCity)
+
+    getFeeInfo({
+      plateNo: `${carProvince}${carCity}${carCodeEnd}`
+    }).then(res => {
+      if (res.success) {
+        wx.setStorageSync('parkInfo', res.data)
+        wx.navigateTo({
+          url: '/pages/parkInfo/park',
+        })
+      } else {
+        Dialog.alert({
+          title: '提示',
+          message: '没有查到泊车信息，如号牌无误，请前往出口处人工缴费！'
+        })
+      }
     })
   },
   onParkTickets() {
@@ -102,16 +132,7 @@ Page({
       show: true
     })
   },
-  showDialog() {
-    Dialog.alert({
-      title: '标题',
-      message: '弹窗内容'
-    }).then(() => {
-      // on close
-    });
-  },
   onLoad: function () {
-
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -143,10 +164,9 @@ Page({
     this.setData({ show: false });
   },
   onSelect(event) {
-    console.log(event.detail);
+    // console.log(event.detail);
   },
   getUserInfo: function(e) {
-    console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
@@ -156,6 +176,16 @@ Page({
   uploadPiao() {
     wx.navigateTo({
       url: '/pages/points/points',
+    })
+  },
+  onShow: function() {
+    const carProvince = wx.getStorageSync('carProvince') || '苏'
+    const carCity = wx.getStorageSync('carCity') || 'K'
+    const carCodeEnd = wx.getStorageSync('carCodeEnd') || ''
+    this.setData({
+      carProvince,
+      carCity,
+      carCodeEnd
     })
   }
 })
