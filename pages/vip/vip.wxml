@@ -1,8 +1,8 @@
-<view class="main-container">
+<view>
 	<!-- vip 已注册 -->
 	<view id="vip" wx:if="{{phone}}">
 		<view class="full-width" style="text-align: center;">
-			<image width="100%" src="https://img.yzcdn.cn/vant/cat.jpeg" mode="scaleToFill"></image>
+			<image src="../../images/banner.jpeg" mode="center" style="width: 100%;"></image>
 		</view>
 		<van-grid border="{{false}}">
 			<van-grid-item icon="manager-o" text="会员资料" link-type="navigateTo" url="/pages/vipInfo/index" />

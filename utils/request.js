@@ -40,6 +40,18 @@ const request = async (url, params, options) => {
               icon: 'none'
             })
           }
+          if (res.data.code === 403) { // 无权限访问
+            try {
+              wx.clearStorageSync() // 清空数据缓存
+              wx.reLaunch({
+                url: '/pages/index/index',
+              })
+            } catch (error) {
+              wx.showToast({
+                title: '缓存清除失败，请尝试重启小程序',
+              })
+            }
+          }
         } else {
           reject(res.data)
         }

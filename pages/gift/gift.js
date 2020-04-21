@@ -64,7 +64,7 @@ Page({
   onLoad: function (options) {
     getSign().then(res => {
       if (res.success) {
-        const { daysOfCurrentMonth = [] } = res.data
+        const daysOfCurrentMonth = res.data ? res.data.daysOfCurrentMonth : []
 
         this.setData({
           formatter: function(day) {

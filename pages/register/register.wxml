@@ -5,7 +5,7 @@
       <image width="100rpx" height="100rpx" wx:if="{{userInfo.avatarUrl}}" src="{{userInfo.avatarUrl}}" />
     </view>
     <text wx:if="{{userInfo.nickName}}">{{userInfo.nickName}}</text>
-    <van-button wx:if="{{!userInfo.nickName}}" hairline open-type="getUserInfo" bind:getuserinfo="bindGetUserInfo">点击获取头像</van-button>
+    <van-button wx:if="{{!userInfo.nickName}}" hairline open-type="getUserInfo" bind:getuserinfo="bindGetUserInfo" lang="zh_CN">点击获取头像</van-button>
   </view>
   <van-cell-group>
     <van-field value="{{ name }}" label="姓名" left-icon="user-o" bind:change="onChangeName" placeholder="请输入姓名" />

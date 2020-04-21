@@ -2,3 +2,8 @@
 .value-class {
   color: black;
 }
+.right-text-cls text {
+  font-size: 38rpx;
+  font-weight: bold;
+  color: #1AAD19;
+}

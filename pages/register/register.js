@@ -11,11 +11,13 @@ Page({
     address: '',
     sex: '1',
     agree: true,
-    openid,
+    openid: wx.getStorageSync('openid'),
     userInfo: {},
     sessionKey: ''
   },
   bindGetUserInfo(e) {
+    console.log(e.detail, 'detail');
+    
     const {
       userInfo
     } = e.detail
@@ -54,7 +56,7 @@ Page({
     getPhone({
       encryptedData,
       iv,
-      openid
+      openid: wx.getStorageSync('openid') || this.data.openid
     }).then(res => {
       if (res.success) {
         that.setData({
@@ -96,7 +98,7 @@ Page({
       name,
       address,
       cellphone: phone,
-      wxOpenId: openid,
+      wxOpenId: wx.getStorageSync('openid') || this.data.openid,
       wxNickeName: userInfo.nickName,
       wxAvatarUrl: userInfo.avatarUrl,
       wxGender: userInfo.gender,
@@ -106,7 +108,7 @@ Page({
     }).then(res => {
       Toast.clear()
       if (res.success) {
-        wx.setStorageSync('openid', openid)
+        // wx.setStorageSync('openid', openid)
         wx.setStorageSync('user', res.data)
         Toast.success('注册成功')
         setTimeout(() => {
@@ -118,11 +120,8 @@ Page({
     })
   },
   
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-    if (wx.getStorageSync('user') && wx.getStorageSync('user').cellphone) { // has been registed
+    if (wx.getStorageSync('user') && wx.getStorageSync('user').cellphone) {
       wx.navigateTo({
         url: '/pages/vip/vip',
       })
@@ -130,10 +129,12 @@ Page({
       wx.getUserInfo({
         lang: 'zh_CN',
         success: (res) => {
+          console.log(res);
+          
           this.setData({
             userInfo: res.userInfo
           })
-        },
+        }
       })
     }  
   }

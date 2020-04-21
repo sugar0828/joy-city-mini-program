@@ -1,44 +1,29 @@
-<view>
+<view style="padding: 0 20rpx;">
 
   <view wx:for="{{records}}" wx:key="index" class="full-width">
     <van-divider class="margin0-cls" />
     <van-row class="padding-side">
       <van-col span="10" offset="1">车牌尾号</van-col>
-      <van-col span="12" class="right-text-cls">BH003Y</van-col>
+      <van-col span="12" class="right-text-cls">{{item.plateNo}}</van-col>
     </van-row>
     <van-row class="padding-side color-gray font-size-12">
       <van-col span="10" offset="1">进场时间</van-col>
-      <van-col span="12" class="right-text-cls">2019-10-31 10:39:52</van-col>
+      <van-col span="12" class="right-text-cls">{{item.entryTime}}</van-col>
     </van-row>
     <van-row class="padding-side color-gray font-size-12">
       <van-col span="10" offset="1">泊车费用</van-col>
-      <van-col span="12" class="right-text-cls">14元</van-col>
-    </van-row>
-    <van-row class="padding-side color-gray font-size-12">
-      <van-col span="10" offset="1">缴费时间</van-col>
-      <van-col span="12" class="right-text-cls">2020-1-2 12:12:12</van-col>
-    </van-row>
-    <van-divider class="margin0-cls" />
-  </view>
-
-  <view class="full-width">
-    <van-row class="padding-side">
-      <van-col span="10" offset="1">车牌尾号</van-col>
-      <van-col span="12" class="right-text-cls">BH003Y</van-col>
-    </van-row>
-    <van-row class="padding-side color-gray font-size-12">
-      <van-col span="10" offset="1">进场时间</van-col>
-      <van-col span="12" class="right-text-cls">2019-10-31 10:39:52</van-col>
-    </van-row>
-    <van-row class="padding-side color-gray font-size-12">
-      <van-col span="10" offset="1">泊车费用</van-col>
-      <van-col span="12" class="right-text-cls">14元</van-col>
+      <van-col span="12" class="right-text-cls">
+        <text>{{item.payable / 100}}</text>元
+      </van-col>
     </van-row>
     <van-row class="padding-side color-gray font-size-12">
       <van-col span="10" offset="1">积分抵用</van-col>
-      <van-col span="12" class="right-text-cls">100积分</van-col>
+      <van-col span="12" class="right-text-cls">{{item.deductionIntegral}}</van-col>
     </van-row>
-    <van-divider class="margin0-cls" />
+    <van-row class="padding-side color-gray font-size-12">
+      <van-col span="10" offset="1">缴费时间</van-col>
+      <van-col span="12" class="right-text-cls">{{item.payTime}}</van-col>
+    </van-row>
   </view>
 
 </view>

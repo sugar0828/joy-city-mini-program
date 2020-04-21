@@ -1,32 +1,12 @@
-// pages/vip/vip.js
-const openid = wx.getStorageSync('openid')
-const phone = wx.getStorageSync('user') && wx.getStorageSync('user').cellphone
-
 Page({
   data: {
-    avatarUrl: '',
-    nickName: '',
-    openid,
-    phone: ''
+    openid: wx.getStorageSync('openid'),
+    phone: wx.getStorageSync('user') && wx.getStorageSync('user').cellphone
   },
   onShow() {
     this.setData({
-      openid,
+      openid: wx.getStorageSync('openid'),
       phone: wx.getStorageSync('user') && wx.getStorageSync('user').cellphone
-    })
-  },
-  onLoad: function (options) {
-    this.setData({
-      openid
-    })
-  },
-  bindGetUserInfo(e) {
-    const {
-      userInfo
-    } = e.detail
-    this.setData({
-      avatarUrl: userInfo.avatarUrl,
-      nickName: userInfo.nickName
     })
   },
   goToRegister() {

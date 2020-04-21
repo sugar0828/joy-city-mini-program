@@ -3,69 +3,50 @@ import { getFeeRecordsList } from '../../api/api'
 Page({
   data: {
     total: 0,
-    records: []
-  },
-  onLoad: function (options) {
-    getFeeRecordsList({
+    records: [],
+    searchData: {
       current: 1,
-      page: 10
-    }).then(res => {
+      size: 10
+    }
+  },
+  getList(type) {
+    getFeeRecordsList(this.data.searchData).then(res => {
+      wx.stopPullDownRefresh();
       if (res.success) {
         const { total = 0, records = [] } = res.data
         this.setData({
           total,
-          records
+          records: type === 'reload' ? records : this.data.records.concat(records)
         })
       }
     })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  onLoad: function (options) {
+    this.getList('reload')
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.setData({
+      searchData: {
+        current: 1,
+        size: 10
+      }
+    })
+    this.getList('reload')
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    this.setData({
+      searchData: {
+        current: this.data.searchData.current + 1,
+        size: 10
+      }
+    })
+    this.getList()
   }
 })
