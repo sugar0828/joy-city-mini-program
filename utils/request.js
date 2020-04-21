@@ -23,7 +23,7 @@ const request = async (url, params, options) => {
       ...options.header
   };
   wx.showLoading({
-    title: '数据读取中...',
+    title: options.toastMsg || '数据读取中...',
   })
   return new Promise((resolve, reject) => {
     wx.request({

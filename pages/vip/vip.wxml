@@ -54,7 +54,7 @@
   <!--  no register 未注册 -->
 	<view id="noRegister" wx:if="{{!phone}}">
 		<view class="full-width" style="text-align: center;">
-			<image width="100%" src="https://img.yzcdn.cn/vant/cat.jpeg"></image>
+			<image src="../../images/banner.jpeg" mode="center" style="width: 100%;"></image>
 		</view>
 
 		<view style="padding: 10px">

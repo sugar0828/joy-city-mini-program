@@ -5,24 +5,30 @@
 	</view>
 
 	<view class="park-info">进场时间：{{info.entryTime}}</view>
-	<view class="park-info">泊车费：<text>{{info.payable / 100}}</text>元</view>
+	<view class="park-info">泊车费：￥<text class="park-fee">{{info.payable / 100}}</text>元</view>
 
 	<view class="park-pic">
 		<image src="{{info.imgName}}"></image>
 	</view>
 
 	<view class="pay-info">
-    <view wx:if="{{user.cellphone}}" class="pay-item">会员权益：
+		<view wx:if="{{user.cellphone}}" class="pay-item">会员权益：
 			<view class="stress inline-me">
-			{{info.hour}}小时
-			<view wx:if="{{info.minutes}}" class="inline-me">{{info.minutes}}分钟</view>
-			免费泊车
+				{{info.hour}}小时
+				<view wx:if="{{info.minutes}}" class="inline-me">{{info.minutes}}分钟</view>
+				免费泊车
 			</view>
 		</view>
-    <view class="pay-item" wx:if="{{ info.deductionIntegral > 0 }}">积分抵扣：<text class="stress">{{info.deductionIntegral}}</text></view>
-    <view class="pay-item">微信支付：<text class="stress">{{info.wxPayment / 100}}元</text></view>
+		<view class="pay-item" wx:if="{{ info.deductionIntegral > 0 }}">积分抵扣：<text class="stress">{{info.deductionIntegral}}</text></view>
+		<view class="pay-item">
+			微信支付：￥
+			<text class="stress" style="font-size: 40rpx;">{{info.wxPayment / 100}}</text>
+			元
+		</view>
 	</view>
 
-  <button type="primary" bindtap="toParkRecord" class="pay">现在缴费</button>
+	<view style="padding-bottom: 30rpx">
+		<button type="primary" bindtap="toParkRecord" class="pay">现在缴费</button>
+	</view>
 
 </view>

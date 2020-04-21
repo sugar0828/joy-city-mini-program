@@ -4,7 +4,7 @@ App({
   onLaunch: function () {
     // 登录
     // 先判断是否有用户注册信息
-    const user = wx.getStorageSync('user')
+    /* const user = wx.getStorageSync('user')
     if (user && user.cellphone) { // 已注册
     } else {
       wx.login({
@@ -19,7 +19,7 @@ App({
           })
         }
       })
-    }
+    } */
   },
   globalData: {
     userInfo: null,

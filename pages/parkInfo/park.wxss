@@ -1,8 +1,8 @@
 .park-info {
   text-align: center;
 }
-.park-info text {
-  font-size: 42rpx;
+.park-fee {
+  font-size: 40rpx;
   font-weight: bold;
 }
 .pay {

@@ -18,7 +18,9 @@
   margin-bottom: 10px;
 }
 .vip-btn {
-  padding: 20px 50px 10px 50px;
+  padding: 20rpx 0;
+  width: 60%;
+  margin: 0 auto;
 }
 .register-btn {
   margin-bottom: 10px;

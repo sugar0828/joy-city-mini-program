@@ -16,8 +16,6 @@ Page({
     sessionKey: ''
   },
   bindGetUserInfo(e) {
-    console.log(e.detail, 'detail');
-    
     const {
       userInfo
     } = e.detail
@@ -108,7 +106,6 @@ Page({
     }).then(res => {
       Toast.clear()
       if (res.success) {
-        // wx.setStorageSync('openid', openid)
         wx.setStorageSync('user', res.data)
         Toast.success('注册成功')
         setTimeout(() => {

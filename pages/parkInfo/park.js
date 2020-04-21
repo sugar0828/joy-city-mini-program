@@ -11,8 +11,11 @@ Page({
       icon: 'none'
     })
   },
-  onLoad: function (options) {
+  onShow: function (options) {
     const parkInfo = wx.getStorageSync('parkInfo')
+    this.setData({
+      user: wx.getStorageSync('user')
+    })
     if (Object.keys(parkInfo).length) {
       const time = parseFloat(parkInfo.freeTime)
       const info = {

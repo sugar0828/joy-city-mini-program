@@ -4,7 +4,7 @@ const app = getApp()
 import Dialog from '@vant/weapp/dialog/dialog'
 import Toast from '@vant/weapp/toast/toast'
 import { checkOpenid } from './../../utils/util'
-import { getFeeInfo } from './../../api/api'
+import { getFeeInfo, getOpenid } from './../../api/api'
 
 const openid = wx.getStorageSync('openid')
 let _carCodeProvince = ''
@@ -48,8 +48,8 @@ Page({
   onConfirmCarProvince() {
     this.setData({
       showCarProvince: false,
-      carProvince: _carCodeProvince,
-      carCity: _carCodeCity
+      carProvince: _carCodeProvince || this.data.carProvince,
+      carCity: _carCodeCity || this.data.carCity
     })
   },
   onCancelCarProvince() {
@@ -104,22 +104,14 @@ Page({
     })
   },
   onParkTickets() {
-    if (openid) {
-      wx.navigateTo({
-        url: '/pages/parkTickets/ticket'
-      })
-    } else {
-      checkOpenid()
-    }
+    wx.navigateTo({
+      url: '/pages/parkTickets/ticket'
+    })
   },
   onBalanceList() {
-    if (openid) {
-      wx.navigateTo({
-        url: '/pages/costRecords/index'
-      })
-    } else {
-      checkOpenid()
-    }
+    wx.navigateTo({
+      url: '/pages/costRecords/index'
+    })
   },
   //事件处理函数
   bindViewTap: function() {
@@ -179,6 +171,25 @@ Page({
     })
   },
   onShow: function() {
+    // 获取用户openid & 是否注册
+    const user = wx.getStorageSync('user')
+    if (user && user.cellphone) { // 已注册
+    } else {
+      if (user !== 0) {
+        wx.login({
+          success: res => {
+            wx.setStorageSync('loginCode', res.code)
+            getOpenid(res.code).then(res => {
+              if (res.success) {
+                wx.setStorageSync('openid', res.data.openid)
+                wx.setStorageSync('user', res.data.user || 0)
+              }
+            })
+          }
+        })
+      }
+    }
+
     const carProvince = wx.getStorageSync('carProvince') || '苏'
     const carCity = wx.getStorageSync('carCity') || 'K'
     const carCodeEnd = wx.getStorageSync('carCodeEnd') || ''
@@ -187,5 +198,6 @@ Page({
       carCity,
       carCodeEnd
     })
+
   }
 })

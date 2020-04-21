@@ -17,7 +17,9 @@ const getMemberInfo = () => {
 }
 
 const getFeeInfo = data => {
-  return request.post('/park/info', data) // plateNo
+  return request.post('/park/info', data, {
+    toastMsg: '记录查询中...'
+  }) // plateNo
 }
 
 // 签到
