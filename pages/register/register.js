@@ -1,8 +1,5 @@
-// pages/register/register.js
 import Toast from '@vant/weapp/toast/toast.js';
 import { getPhone, register } from '../../api/api'
-
-const openid = wx.getStorageSync('openid')
 
 Page({
   data: {
@@ -126,8 +123,6 @@ Page({
       wx.getUserInfo({
         lang: 'zh_CN',
         success: (res) => {
-          console.log(res);
-          
           this.setData({
             userInfo: res.userInfo
           })

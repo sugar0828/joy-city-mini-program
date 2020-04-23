@@ -37,6 +37,12 @@ const getFeeRecordsList = data => {
   return request.post('/parkingPaymentRecord/page', data)
 }
 
+const getPayParams = data => {
+  return request.post('/wx/pay/createOrder', data, {
+    toastMsg: '正在下单...'
+  })
+}
+
 export {
   getOpenid,
   getPhone,
@@ -45,5 +51,6 @@ export {
   getFeeInfo,
   sign,
   getSign,
-  getFeeRecordsList
+  getFeeRecordsList,
+  getPayParams
 }

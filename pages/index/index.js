@@ -3,10 +3,8 @@
 const app = getApp()
 import Dialog from '@vant/weapp/dialog/dialog'
 import Toast from '@vant/weapp/toast/toast'
-import { checkOpenid } from './../../utils/util'
 import { getFeeInfo, getOpenid } from './../../api/api'
 
-const openid = wx.getStorageSync('openid')
 let _carCodeProvince = ''
 let _carCodeCity = ''
 

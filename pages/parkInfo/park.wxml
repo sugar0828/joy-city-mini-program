@@ -28,7 +28,9 @@
 	</view>
 
 	<view style="padding-bottom: 30rpx">
-		<button type="primary" bindtap="toParkRecord" class="pay">现在缴费</button>
+		<button type="primary" class="pay" bindtap="toParkRecord">立即缴费</button>
 	</view>
+
+	<van-dialog id="van-dialog" />
 
 </view>

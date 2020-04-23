@@ -61,9 +61,18 @@
 			<view class="vip-desc">
 				<text>会员可享有以下特权</text>
 			</view>
-			<van-panel title="积分停车" desc="200积分兑换一小时停车"></van-panel>
-			<van-panel title="自助积分" desc="拍照上传小票自助积分"></van-panel>
-			<van-panel title="积分兑换" desc="使用积分兑换礼品"></van-panel>
+			<view class="vip-desc-item">
+				<view class="vip-desc-item-title">积分停车</view>
+				<view class="vip-desc-item-content">200积分兑换一小时停车</view>
+			</view>
+			<view class="vip-desc-item">
+				<view class="vip-desc-item-title">自助积分</view>
+				<view class="vip-desc-item-content">拍照上传小票自助积分</view>
+			</view>
+			<view class="vip-desc-item">
+				<view class="vip-desc-item-title">积分兑换</view>
+				<view class="vip-desc-item-content">使用积分兑换礼品</view>
+			</view>
 		</view>
 
 		<view class="vip-btn">

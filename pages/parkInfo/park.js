@@ -1,3 +1,6 @@
+import { getPayParams } from '../../api/api'
+import Dialog from '@vant/weapp/dialog/dialog'
+
 Page({
   data: {
     info: {
@@ -6,9 +9,46 @@ Page({
     user: wx.getStorageSync('user')
   },
   toParkRecord() {
-    wx.showToast({
-      title: '功能开发中...',
-      icon: 'none'
+    const { orderNo, delayTime } = this.data.info
+    getPayParams({
+      orderNo
+    }).then(res => {
+      wx.hideToast()
+      if (res.success) {
+        const { timeStamp, nonceStr, packageValue, signType, paySign } = res.data
+        wx.requestPayment({
+          timeStamp,
+          nonceStr,
+          package: packageValue,
+          signType,
+          paySign,
+          success (res) {
+            Dialog.alert({
+              title: '提示',
+              message: `您有${delayTime}分钟时间离场，超时重新计费！`
+            }).then(() => {
+              wx.redirectTo({
+                url: '/pages/costRecords/index',
+              })
+            })
+          },
+          fail (res) {
+            console.log(res)
+            const isCancel = res.errMsg.includes('cancel')
+            wx.showToast({
+              title: `支付失败, 原因：${isCancel ? '主动取消支付' : '未知'}`,
+              icon: 'none'
+            })
+            setTimeout(() => {
+              wx.redirectTo({
+                url: '/pages/costRecords/index',
+              })
+            }, 4 * 60 * 1000);
+           },
+          complete() {
+          }
+        })
+      }
     })
   },
   onShow: function (options) {
@@ -33,5 +73,7 @@ Page({
         icon: 'none'
       })
     }
+  },
+  onLoad: function() {
   }
 })

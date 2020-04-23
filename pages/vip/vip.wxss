@@ -28,3 +28,15 @@
 .not-register-btn {
   padding: 0 50px;
 }
+
+.vip-desc-item {
+  padding: 20rpx 50rpx;
+  border-bottom: 1px solid #eee;
+}
+.vip-desc-item-title {
+  color: #323233;
+}
+.vip-desc-item-content {
+  color: #969799;
+  font-size: 12px;
+}
