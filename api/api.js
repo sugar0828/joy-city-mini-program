@@ -43,6 +43,10 @@ const getPayParams = data => {
   })
 }
 
+const paymentUsePoints = data => {
+  return request.post('/park/paymentUsePoints', data)
+}
+
 export {
   getOpenid,
   getPhone,
@@ -52,5 +56,6 @@ export {
   sign,
   getSign,
   getFeeRecordsList,
-  getPayParams
+  getPayParams,
+  paymentUsePoints
 }

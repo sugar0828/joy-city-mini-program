@@ -19,7 +19,13 @@
 			</van-row>
 			<van-row class="padding-side color-gray font-size-12">
 				<van-col span="10" offset="1">积分抵用</van-col>
-				<van-col span="12" class="right-text-cls">{{item.deductionIntegral}}</van-col>
+				<van-col span="12" class="right-text-cls">{{item.deductionIntegral}}积分</van-col>
+			</van-row>
+			<van-row class="padding-side color-gray font-size-12">
+				<van-col span="10" offset="1">微信支付</van-col>
+				<van-col span="12" class="right-text-cls">
+					<text>{{item.wxPayment / 100}}</text>元
+				</van-col>
 			</van-row>
 			<van-row class="padding-side color-gray font-size-12">
 				<van-col span="10" offset="1">缴费时间</van-col>

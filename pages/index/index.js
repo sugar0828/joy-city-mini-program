@@ -90,9 +90,16 @@ Page({
     }).then(res => {
       if (res.success) {
         wx.setStorageSync('parkInfo', res.data)
-        wx.navigateTo({
-          url: '/pages/parkInfo/park',
-        })
+        if (res.data.payable === 0) {
+          Dialog.alert({
+            title: '提示',
+            message: '您当前时刻没有未缴费用，请直接前往停车场出口！'
+          })
+        } else {
+          wx.navigateTo({
+            url: '/pages/parkInfo/park',
+          })
+        }
       } else {
         Dialog.alert({
           title: '提示',

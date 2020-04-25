@@ -1,4 +1,7 @@
-import { getPayParams } from '../../api/api'
+import {
+  getPayParams,
+  paymentUsePoints
+} from '../../api/api'
 import Dialog from '@vant/weapp/dialog/dialog'
 
 Page({
@@ -9,47 +12,73 @@ Page({
     user: wx.getStorageSync('user')
   },
   toParkRecord() {
-    const { orderNo, delayTime } = this.data.info
-    getPayParams({
-      orderNo
-    }).then(res => {
-      wx.hideToast()
-      if (res.success) {
-        const { timeStamp, nonceStr, packageValue, signType, paySign } = res.data
-        wx.requestPayment({
-          timeStamp,
-          nonceStr,
-          package: packageValue,
-          signType,
-          paySign,
-          success (res) {
-            Dialog.alert({
-              title: '提示',
-              message: `您有${delayTime}分钟时间离场，超时重新计费！`
-            }).then(() => {
-              wx.redirectTo({
-                url: '/pages/costRecords/index',
-              })
+    const {
+      orderNo,
+      wxPayment,
+      delayTime
+    } = this.data.info
+    if (wxPayment === 0) { // 使用积分缴费
+      paymentUsePoints({
+        orderNo
+      }).then(res => {
+        if (res.success) {
+          Dialog.alert({
+            title: '提示',
+            message: `您有${delayTime}分钟时间离场，超时重新计费！`
+          }).then(() => {
+            wx.redirectTo({
+              url: '/pages/costRecords/index',
             })
-          },
-          fail (res) {
-            console.log(res)
-            const isCancel = res.errMsg.includes('cancel')
-            wx.showToast({
-              title: `支付失败, 原因：${isCancel ? '主动取消支付' : '未知'}`,
-              icon: 'none'
-            })
-            setTimeout(() => {
-              wx.redirectTo({
-                url: '/pages/costRecords/index',
+          })
+        }
+      })
+    } else { // 微信付款
+      getPayParams({
+        orderNo
+      }).then(res => {
+        wx.hideToast()
+        if (res.success) {
+          const {
+            timeStamp,
+            nonceStr,
+            packageValue,
+            signType,
+            paySign
+          } = res.data
+          wx.requestPayment({
+            timeStamp,
+            nonceStr,
+            package: packageValue,
+            signType,
+            paySign,
+            success(res) {
+              Dialog.alert({
+                title: '提示',
+                message: `您有${delayTime}分钟时间离场，超时重新计费！`
+              }).then(() => {
+                wx.redirectTo({
+                  url: '/pages/costRecords/index',
+                })
               })
-            }, 4 * 60 * 1000);
-           },
-          complete() {
-          }
-        })
-      }
-    })
+            },
+            fail(res) {
+              const isCancel = res.errMsg.includes('cancel')
+              wx.showToast({
+                title: `支付失败, 原因：${isCancel ? '主动取消支付' : '未知'}`,
+                icon: 'none'
+              })
+              setTimeout(() => {
+                wx.redirectTo({
+                  url: '/pages/costRecords/index',
+                })
+              }, 4 * 60 * 1000);
+            },
+            complete() {}
+          })
+        }
+      })
+    }
+
   },
   onShow: function (options) {
     const parkInfo = wx.getStorageSync('parkInfo')
@@ -74,6 +103,5 @@ Page({
       })
     }
   },
-  onLoad: function() {
-  }
+  onLoad: function () {}
 })

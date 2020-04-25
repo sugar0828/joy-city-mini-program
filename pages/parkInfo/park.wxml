@@ -5,6 +5,13 @@
 	</view>
 
 	<view class="park-info">进场时间：{{info.entryTime}}</view>
+	<view wx:if="{{user.cellphone}}" class="park-info">会员权益：
+		<view class="stress inline-me">
+			{{info.hour}}小时
+			<view wx:if="{{info.minutes}}" class="inline-me">{{info.minutes}}分钟</view>
+			免费泊车
+		</view>
+	</view>
 	<view class="park-info">泊车费：￥<text class="park-fee">{{info.payable / 100}}</text>元</view>
 
 	<view class="park-pic">
@@ -12,14 +19,9 @@
 	</view>
 
 	<view class="pay-info">
-		<view wx:if="{{user.cellphone}}" class="pay-item">会员权益：
-			<view class="stress inline-me">
-				{{info.hour}}小时
-				<view wx:if="{{info.minutes}}" class="inline-me">{{info.minutes}}分钟</view>
-				免费泊车
-			</view>
+
+		<view class="pay-item" wx:if="{{ info.deductionIntegral > 0 }}">积分抵扣：			<text class="stress">{{info.deductionIntegral}}</text>
 		</view>
-		<view class="pay-item" wx:if="{{ info.deductionIntegral > 0 }}">积分抵扣：<text class="stress">{{info.deductionIntegral}}</text></view>
 		<view class="pay-item">
 			微信支付：￥
 			<text class="stress" style="font-size: 40rpx;">{{info.wxPayment / 100}}</text>
@@ -28,7 +30,9 @@
 	</view>
 
 	<view style="padding-bottom: 30rpx">
-		<button type="primary" class="pay" bindtap="toParkRecord">立即缴费</button>
+		<button type="primary" class="pay" bindtap="toParkRecord">
+			{{ info.wxPayment === 0 ? '使用积分缴费'  :  '立即缴费'}}
+		</button>
 	</view>
 
 	<van-dialog id="van-dialog" />

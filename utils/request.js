@@ -33,11 +33,14 @@ const request = async (url, params, options) => {
       success(res) {
         const isSuccess = isHttpSuccess(res.statusCode);
         if (isSuccess) { // 成功的请求状态
-          resolve(res.data);
           if (res.data.code !== 200) {
-            wx.showToast({
-              title: res.data.msg,
-              icon: 'none'
+            wx.hideLoading({
+              complete: () => {
+                wx.showToast({
+                  title: res.data.msg,
+                  icon: 'none'
+                })
+              },
             })
           }
           if (res.data.code === 403) { // 无权限访问
@@ -52,6 +55,7 @@ const request = async (url, params, options) => {
               })
             }
           }
+          resolve(res.data);
         } else {
           reject(res.data)
         }

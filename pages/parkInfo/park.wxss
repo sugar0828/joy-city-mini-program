@@ -1,5 +1,6 @@
 .park-info {
   text-align: center;
+  line-height: 2;
 }
 .park-fee {
   font-size: 40rpx;
