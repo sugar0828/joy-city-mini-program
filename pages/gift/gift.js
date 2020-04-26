@@ -65,6 +65,11 @@ Page({
             return day
           }
         })
+      } else {
+        wx.showToast({
+          title: res.msg,
+          icon: 'none'
+        })
       }
     })
   },
