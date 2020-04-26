@@ -33,10 +33,12 @@ Page({
       }
       return day
     },
-    isSignedToday: false
+    isSignedToday: false,
+    daysOfCurrentMonth: []
   },
   
   sign() {
+    const signedDaysList = this.data.daysOfCurrentMonth
     sign().then(res => {
       if (res.success) {
         wx.showToast({
@@ -51,6 +53,11 @@ Page({
               day.bottomInfo = '已签到'
             } else {
               day.type = 'disabled'
+            }
+            // 处理以前签到数据
+            if (signedDaysList.includes(date)) {
+              day.type = 'selected'
+              day.bottomInfo = '已签到'
             }
             if (date === new Date().getDate()) {
               day.text = '今天'
@@ -80,6 +87,7 @@ Page({
             }
             return day
           },
+          daysOfCurrentMonth,
           isSignedToday: daysOfCurrentMonth.includes(new Date().getDate())
         })
       }
