@@ -18,7 +18,8 @@ const getMemberInfo = () => {
 
 const getFeeInfo = data => {
   return request.post('/park/info', data, {
-    toastMsg: '记录查询中...'
+    toastMsg: '记录查询中...',
+    noErrorToast: true // 某些情况下不需要toast错误信息
   }) // plateNo
 }
 

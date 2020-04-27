@@ -5,7 +5,7 @@
 	</view>
 
 	<view class="park-info">进场时间：{{info.entryTime}}</view>
-	<view wx:if="{{user.cellphone}}" class="park-info">会员权益：
+	<view wx:if="{{user.cellphone && info.freeTime !== '0'}}" class="park-info">会员权益：
 		<view class="stress inline-me">
 			{{info.hour}}小时
 			<view wx:if="{{info.minutes}}" class="inline-me">{{info.minutes}}分钟</view>
@@ -20,7 +20,7 @@
 
 	<view class="pay-info">
 
-		<view class="pay-item" wx:if="{{ info.deductionIntegral > 0 }}">积分抵扣：			<text class="stress">{{info.deductionIntegral}}</text>
+		<view class="pay-item" wx:if="{{ info.deductionIntegral > 0 }}">积分抵扣： <text class="stress">{{info.deductionIntegral}}</text>
 		</view>
 		<view class="pay-item">
 			微信支付：￥

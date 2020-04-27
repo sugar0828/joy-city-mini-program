@@ -37,6 +37,7 @@
 	<view class="indent-cls">2. 积分抵扣时长：30分钟/100积分，1小时/200积分</view>
 	<view class="indent-cls">3. 租借服务：
 		<view class="indent4-cls">雨伞租借：押金100元/把</view>
+		<view class="indent4-cls">雨衣租借：押金100元/件</view>
 		<view class="indent4-cls">童车租借：押金500元/辆</view>
 		<view class="indent4-cls">轮椅租借：押金500元/辆</view>
 		<view class="stress">注：雨伞可以在七日内归还，其余均需当日归还。</view>

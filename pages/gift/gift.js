@@ -42,7 +42,8 @@ Page({
     sign().then(res => {
       if (res.success) {
         wx.showToast({
-          title: '签到成功',
+          title: `签到成功，获得${res.data.score}积分`,
+          icon: 'success'
         })
         this.setData({
           isSignedToday: true,
@@ -77,7 +78,6 @@ Page({
     getSign().then(res => {
       if (res.success) {
         const daysOfCurrentMonth = res.data ? res.data.daysOfCurrentMonth : []
-
         this.setData({
           formatter: function(day) {
             const date = day.date.getDate();

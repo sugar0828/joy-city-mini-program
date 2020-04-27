@@ -7,7 +7,7 @@
   </van-grid>
 
   <view class="info-panel">
-    <text>可用免费泊车券和会员积分抵扣泊车费，在线支付完成后您有20分钟的取车出场时间。</text>
+    <text>可用免费泊车券和会员积分抵扣泊车费，在线支付完成后您有 <text style="font-size: 40rpx; font-weight: bold; color: #333; text-decoration: underline;">10</text> 分钟的取车出场时间。</text>
   </view>
 
   <view class="full-width car-code-section">

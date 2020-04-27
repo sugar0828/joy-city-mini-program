@@ -36,10 +36,12 @@ const request = async (url, params, options) => {
           if (res.data.code !== 200) {
             wx.hideLoading({
               complete: () => {
-                wx.showToast({
-                  title: res.data.msg,
-                  icon: 'none'
-                })
+                if (!options.noErrorToast) {
+                  wx.showToast({
+                    title: res.data.msg,
+                    icon: 'none'
+                  })
+                }
               },
             })
           }

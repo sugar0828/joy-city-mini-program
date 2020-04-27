@@ -118,6 +118,14 @@
 					"id": -1,
 					"name": "pages/costRecords/index",
 					"pathName": "pages/costRecords/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/vipInfo/index",
+					"pathName": "pages/vipInfo/index",
+					"query": "",
 					"scene": null
 				}
 			]

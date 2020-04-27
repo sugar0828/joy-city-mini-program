@@ -4,6 +4,6 @@
   padding: 0 40px;
 }
 .card-img {
-  font-size: 400rpx;
+  font-size: 500rpx;
   color: goldenrod;
 }

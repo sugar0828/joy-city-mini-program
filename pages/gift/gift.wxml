@@ -12,6 +12,10 @@
     class="calendar"
   />
   
+  <view class="gift-desc">
+    第1天签到得1积分，连续签到每天比前一天多一分，7天后继续连续签到每天得7分，断签后重新计算连续签到天数
+  </view>
+
   <button wx:if="{{isSignedToday}}" disabled="{{true}}" type="primary" class="sign" bindtap="sign">今日已签到</button>
   <button wx:else type="primary" class="sign" bindtap="sign">立即签到</button>
 
