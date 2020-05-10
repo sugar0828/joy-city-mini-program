@@ -46,6 +46,7 @@ const request = async (url, params, options) => {
             })
           }
           if (res.data.code === 403) { // 无权限访问
+            return
             try {
               wx.clearStorageSync() // 清空数据缓存
               wx.reLaunch({
