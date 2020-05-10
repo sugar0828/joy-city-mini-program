@@ -1,20 +1,26 @@
 <view>
-  <view style="text-align: center;">
+	<!-- <view style="text-align: center;">
     <text class="gift-list">栏目开发中... 敬请期待</text>
-  </view>
-
-  <!-- <view style="text-align: center; margin-top: 50px;">
-    <button style="width: 80px; " type="primary" bindtap="takePhoto">拍照</button>
-  </view>
-
-  <view style="text-align: center; margin-top: 50px;">
-    <image wx:if="{{photo}}" mode="widthFix" src="{{photo}}"></image>
-  </view>
-
-  <van-divider />
-
-  <view style="padding: 10px 30px; color: #bbb;">
-    <text>提示：点击上方拍照上传小票，上传成功后等待克服审核，审核通过后积分计入会员账户</text>
   </view> -->
+
+	<view style="text-align: center; margin-top: 20rpx;">
+		<button type="primary" bindtap="takePhoto" style="width: 200rpx;">拍照</button>
+	</view>
+
+	<view style="margin-top: 50rpx; text-align: center;">
+		<image wx:if="{{photo}}" src="{{photo}}" mode="widthFix"></image>
+		<button wx:if="{{photo && showUpload}}" type="primary" bindtap="upload" style="width: 50%; margin-top: 50rpx;">上传小票</button>
+		<view wx:if="{{uploadOk}}" style="margin-top: 50rpx;">
+			<icon type="success" size="30" class="upload-ok-icon" />已上传成功！
+		</view>
+	</view>
+
+	<van-divider />
+
+	<view style="padding: 10px 30px; color: #bbb;">
+		<text>提示：点击上方拍照上传小票，上传成功后等待客服审核，审核通过后积分计入会员账户</text>
+	</view>
+
+	<van-dialog id="van-dialog" />
 
 </view>

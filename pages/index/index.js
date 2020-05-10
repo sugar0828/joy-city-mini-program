@@ -3,7 +3,7 @@
 const app = getApp()
 import Dialog from '@vant/weapp/dialog/dialog'
 import Toast from '@vant/weapp/toast/toast'
-import { getFeeInfo, getOpenid } from './../../api/api'
+import { getFeeInfo, getOpenid, getMemberInfo } from './../../api/api'
 
 let _carCodeProvince = ''
 let _carCodeCity = ''
@@ -129,70 +129,63 @@ Page({
       show: true
     })
   },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
-  },
   onClose() {
     this.setData({ show: false });
   },
   onSelect(event) {
     // console.log(event.detail);
   },
-  getUserInfo: function(e) {
+  /* getUserInfo: function(e) {
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  },
+  }, */
   uploadPiao() {
     wx.navigateTo({
       url: '/pages/points/points',
     })
   },
-  onShow: function() {
-    // 获取用户openid & 是否注册
-    const user = wx.getStorageSync('user')
-    if (user && user.cellphone) { // 已注册
-    } else {
-      if (user !== 0) {
-        wx.login({
-          success: res => {
-            wx.setStorageSync('loginCode', res.code)
-            getOpenid(res.code).then(res => {
-              if (res.success) {
-                wx.setStorageSync('openid', res.data.openid)
-                wx.setStorageSync('user', res.data.user || 0)
-              }
-            })
+  onLoad: function () {
+    // 在没有 open-type=getUserInfo 版本的兼容处理 必须使用 button open-type 让用户主动授权才可以success
+    wx.getUserInfo({
+      success: res => {
+        this.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true
+        })
+      },
+      complete(res) {
+        console.log(res);
+      }
+    })
+    // 注册页面获取微信手机号时候调用获取手机号接口出现sessionKey不存在就是因为loginCode失效导致的这里保险起见每次都重新拿loginCode (临时解决问题的方案，不是最好的方式)
+    wx.login({
+      success: res => {
+        wx.setStorageSync('loginCode', res.code)
+        getOpenid(res.code).then(res => {
+          if (res.success) {
+            wx.setStorageSync('openid', res.data.openid)
+            wx.setStorageSync('user', res.data.user || 0)
           }
         })
       }
+    })
+  },
+  onShow: function() {
+    // 获取用户openid & 是否注册
+    const user = wx.getStorageSync('user')
+    if (user && user.cellphone) {
+      /*
+      小程序注册 表示 手机号和微信绑定 所以有手机号不代表就在微信小程序注册过 有可能是在管理后台手动录入或者老系统导入进来的老数据（这2部分数据也有手机号，但是没有和微信绑定所以并不算注册）
+      所以这里要查询api来判断
+      /o2oMember/info params token：openid
+      接口逻辑：1 没有手机号是新用户要去注册 2 有手机号但是没有openid 表示在其他地方填写的信息依然要重新再小程序注册，注册的过程就是拿手机号和微信openid绑定 3 有手机号且有openid代表真正的注册会员才可以进入会员信息页面
+      */ 
+      
+    } else { // 根据session是否过期获取新的loginCode
+        
     }
 
     const carProvince = wx.getStorageSync('carProvince') || '苏'

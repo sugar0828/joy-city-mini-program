@@ -1,5 +1,5 @@
-.calendar {
-  --calendar-height: 410px;
+.gift-container {
+  padding-bottom: 60rpx;
 }
 .sign {
   width: 350rpx;

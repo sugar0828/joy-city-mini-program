@@ -57,6 +57,8 @@ Page({
         that.setData({
           phone: res.data.phoneNumber
         })
+      } else {
+        
       }
     })
   },

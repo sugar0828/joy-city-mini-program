@@ -127,6 +127,12 @@
 					"pathName": "pages/vipInfo/index",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/points/points",
+					"pathName": "pages/points/points",
+					"scene": null
 				}
 			]
 		}

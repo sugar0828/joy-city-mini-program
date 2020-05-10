@@ -12,6 +12,7 @@ const register = data => {
   return request.post('/o2oMember/register', data)
 }
 
+// 查询用户信息中的手机号码是否和微信openid绑定，只有绑定了才算是会员；只有手机号没有绑定需要重新注册
 const getMemberInfo = () => {
   return request.get('/o2oMember/info')
 }

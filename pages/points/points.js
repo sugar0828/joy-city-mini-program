@@ -1,17 +1,10 @@
-// pages/points/points.js
+import Dialog from '@vant/weapp/dialog/dialog'
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    photo: ''
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+    photo: '',
+    showUpload: false,
+    uploadOk: false
   },
   takePhoto() {
     const self = this;
@@ -20,62 +13,47 @@ Page({
       sizeType: ['original', 'compressed'],
       sourceType: ['camera'],
       success(res) {
-        // tempFilePath可以作为img标签的src属性显示图片
         self.setData({
-          photo: res.tempFilePaths
+          photo: res.tempFilePaths,
+          showUpload: true,
+          uploadOk: false
         });
       }
     })
   },
-  photoError(e) {
-    console.log(e.detail)
-  },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  upload() {
+    const that = this
+    wx.showLoading({
+      title: '上传中，请稍后',
+    })
+    wx.uploadFile({
+      url: 'https://bis.yzjoycity.com/api/o2oTicketAudit/upload',
+      filePath: that.data.photo[0],
+      name: 'file',
+      header: {
+        token: wx.getStorageSync('openid')
+      },
+      success(res){
+        // const data = res.data
+        if (res.statusCode === 200 && res.errMsg === "uploadFile:ok") {
+          Dialog.alert({
+            title: '提示',
+            message: '上传成功，客服后台验证后积分计入您的账户'
+          })
+          that.setData({
+            showUpload: false,
+            uploadOk: true
+          })
+        }
+      },
+      fail() {
+        wx.showToast({
+          title: '上传失败，请重试',
+        })
+      },
+      complete() {
+        wx.hideLoading()
+      }
+    })
   }
 })

@@ -1,4 +1,4 @@
-<view>
+<view class="gift-container">
   <van-calendar
     show="{{ true }}"
     type="multiple"
@@ -13,7 +13,7 @@
   />
   
   <view class="gift-desc">
-    第1天签到得1积分，连续签到每天比前一天多一分，7天后继续连续签到每天得7分，断签后重新计算连续签到天数
+    第1天签到得1积分，连续签到每天比前一天多{{info.param.SIGN_PER_DAY_SCORES}}分，{{info.param.SIGN_MAX_CONTINUE_DAYS}}天后继续连续签到保持最高积分不再增加，断签后重新计算连续签到天数
   </view>
 
   <button wx:if="{{isSignedToday}}" disabled="{{true}}" type="primary" class="sign" bindtap="sign">今日已签到</button>

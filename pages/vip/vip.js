@@ -11,7 +11,7 @@ Page({
   },
   goToRegister() {
     wx.redirectTo({
-      url: '/pages/register/register',
+      url: '/pages/register/register'
     })
   }
 })

@@ -34,7 +34,8 @@ Page({
       return day
     },
     isSignedToday: false,
-    daysOfCurrentMonth: []
+    daysOfCurrentMonth: [],
+    info: {}
   },
   
   sign() {
@@ -93,7 +94,8 @@ Page({
             return day
           },
           daysOfCurrentMonth,
-          isSignedToday: daysOfCurrentMonth.includes(new Date().getDate())
+          isSignedToday: daysOfCurrentMonth.includes(new Date().getDate()),
+          info: res.data
         })
       }
     })
