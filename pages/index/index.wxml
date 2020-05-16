@@ -19,7 +19,8 @@
     <van-cell title="选择车牌省份和城市(发证机关)" is-link bind:click="onShowCarProvince" />
     <view>
       <van-cell-group>
-        <van-field value="{{ carCodeEnd }}" clearable label="车牌号" placeholder="请输入车牌号" bind:change="onChangeCarCode" maxlength="8" required error />
+        <van-field value="{{ carCodeEnd }}" clearable label="请输入车牌号" placeholder="请输入车牌号" bind:change="onChangeCarCode" maxlength="8" required error />
+       <!--  <van-field value="{{ carCodeEnd }}" clearable label="请输入车牌号" placeholder="请输入车牌号" bind:focus="onFocusCarCode" /> -->
       </van-cell-group>
     </view>
   </view>
@@ -27,6 +28,8 @@
   <view class="bottom-top-padding">
     <button type="primary" bind:tap="checkCost" style="width: 350rpx;">查询缴费金额</button>
   </view>
+
+  <!-- <v-panel is-show="{{showKeyBoard}}" bindok="inputOk" binddelete="inputdelete" bindinputchange="inputChange" key-board-type="{{boardType}}" backgroundColor="#eee" /> -->
 
 <!--   <view class="bottom-top-padding">
     <button type="primary" bind:click="toParkRecord">有停车记录</button>

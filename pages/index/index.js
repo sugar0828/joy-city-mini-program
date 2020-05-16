@@ -31,7 +31,22 @@ Page({
     carProvince: '苏',
     carCity: 'K',
     showCarProvince: false,
-    carCodeEnd: ''
+    carCodeEnd: '',
+    showKeyBoard: false,
+    boardType: 1
+  },
+  onFocusCarCode() {
+    const that = this
+    console.log('onFocusCarCode');
+    
+    wx.hideKeyboard({
+      complete: res => {
+        console.log('hideKeyboard res', res)
+        that.setData({
+          showKeyBoard: true
+        })
+      }
+    })
   },
   onShowCarProvince() {
     this.setData({
@@ -197,5 +212,14 @@ Page({
       carCodeEnd
     })
 
+  },
+  inputOk() {
+    console.log('input ok');
+  },
+  inputdelete() {
+    console.log('input delete');
+  },
+  inputChange(value) {
+    console.log(value);
   }
 })

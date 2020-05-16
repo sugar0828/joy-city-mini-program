@@ -15,19 +15,6 @@
     <van-field value="{{ address }}" bindchange="onChangeAddress" label="地址" left-icon="location-o" placeholder="请输入地址" />
   </van-cell-group>
 
-  <view style="padding: 20px;">
-    <view>
-      <text style="color: #333;">性别</text>
-    </view>
-    <van-divider />
-    <van-radio-group value="{{ sex }}" bind:change="onChangeSex">
-      <van-radio name="1" checked-color="#07c160">男</van-radio>
-      <van-divider />
-      <van-radio name="2" checked-color="#07c160">女</van-radio>
-    </van-radio-group>
-    <van-divider />
-  </view>
-
   <view class="padding20">
     <checkbox-group bindchange="checkboxChange">
       <label>

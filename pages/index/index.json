@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "御龙湾商业广场",
   "usingComponents": {
-    "van-popup": "@vant/weapp/popup/index"
+    "van-popup": "@vant/weapp/popup/index",
+    "v-panel": "./Components/keyboard"
   }
 }
