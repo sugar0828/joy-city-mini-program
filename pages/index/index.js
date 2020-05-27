@@ -176,7 +176,7 @@ Page({
       }
     })
     // 注册页面获取微信手机号时候调用获取手机号接口出现sessionKey不存在就是因为loginCode失效导致的这里保险起见每次都重新拿loginCode (临时解决问题的方案，不是最好的方式)
-    wx.login({
+    /* wx.login({
       success: res => {
         wx.setStorageSync('loginCode', res.code)
         getOpenid(res.code).then(res => {
@@ -186,7 +186,7 @@ Page({
           }
         })
       }
-    })
+    }) */
   },
   onShow: function() {
     // 获取用户openid & 是否注册

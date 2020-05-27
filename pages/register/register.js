@@ -1,5 +1,5 @@
 import Toast from '@vant/weapp/toast/toast.js';
-import { getPhone, register } from '../../api/api'
+import { getPhone, register, getOpenid } from '../../api/api'
 
 Page({
   data: {
@@ -48,17 +48,20 @@ Page({
   getPhoneNumber(e) {
     const that = this
     const { encryptedData, iv } = e.detail
+    wx.showLoading({
+      title: '手机号获取中...',
+      mask: true
+    })
     getPhone({
       encryptedData,
       iv,
       openid: wx.getStorageSync('openid') || this.data.openid
     }).then(res => {
+      wx.hideLoading()
       if (res.success) {
         that.setData({
           phone: res.data.phoneNumber
         })
-      } else {
-        
       }
     })
   },
