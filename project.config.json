@@ -1,140 +1,150 @@
 {
-	"description": "项目配置文件",
-	"packOptions": {
-		"ignore": []
-	},
-	"setting": {
-		"urlCheck": true,
-		"es6": true,
-		"enhance": true,
-		"postcss": true,
-		"minified": true,
-		"newFeature": true,
-		"coverView": true,
-		"nodeModules": true,
-		"autoAudits": false,
-		"showShadowRootInWxmlPanel": false,
-		"scopeDataCheck": false,
-		"checkInvalidKey": true,
-		"checkSiteMap": true,
-		"uploadWithSourceMap": true,
-		"babelSetting": {
-			"ignore": [],
-			"disablePlugins": [],
-			"outputPath": ""
-		}
-	},
-	"compileType": "miniprogram",
-	"libVersion": "2.10.3",
-	"appid": "wxe78571878ff448db",
-	"projectname": "joy-city-mini-program",
-	"debugOptions": {
-		"hidedInDevtools": []
-	},
-	"isGameTourist": false,
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
-	"condition": {
-		"search": {
-			"current": -1,
-			"list": []
-		},
-		"conversation": {
-			"current": -1,
-			"list": []
-		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
-		"game": {
-			"currentL": -1,
-			"list": []
-		},
-		"gamePlugin": {
-			"current": -1,
-			"list": []
-		},
-		"miniprogram": {
-			"current": -1,
-			"list": [
-				{
-					"id": -1,
-					"name": "pages/vip/vip",
-					"pathName": "pages/vip/vip",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/index/index",
-					"pathName": "pages/index/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/register/register",
-					"pathName": "pages/register/register",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/pointDesc/pointDesc",
-					"pathName": "pages/pointDesc/pointDesc",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/gift/gift",
-					"pathName": "pages/gift/gift",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/waitingList/wait",
-					"pathName": "pages/waitingList/wait",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/gift/gift",
-					"pathName": "pages/gift/gift",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/parkInfo/park",
-					"pathName": "pages/parkInfo/park",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/costRecords/index",
-					"pathName": "pages/costRecords/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/vipInfo/index",
-					"pathName": "pages/vipInfo/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/points/points",
-					"pathName": "pages/points/points",
-					"scene": null
-				}
-			]
-		}
-	}
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": true,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": false,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "enableEngineNative": false,
+    "bundle": false,
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.10.3",
+  "appid": "wxe78571878ff448db",
+  "projectname": "joy-city-mini-program",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "currentL": -1,
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "pages/vip/vip",
+          "pathName": "pages/vip/vip",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/register/register",
+          "pathName": "pages/register/register",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/pointDesc/pointDesc",
+          "pathName": "pages/pointDesc/pointDesc",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/gift/gift",
+          "pathName": "pages/gift/gift",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/waitingList/wait",
+          "pathName": "pages/waitingList/wait",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/gift/gift",
+          "pathName": "pages/gift/gift",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/parkInfo/park",
+          "pathName": "pages/parkInfo/park",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/costRecords/index",
+          "pathName": "pages/costRecords/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/vipInfo/index",
+          "pathName": "pages/vipInfo/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/points/points",
+          "pathName": "pages/points/points",
+          "scene": null
+        }
+      ]
+    }
+  }
 }

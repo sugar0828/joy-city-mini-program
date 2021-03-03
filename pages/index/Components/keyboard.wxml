@@ -1,36 +1,59 @@
-<view wx:if="{{isShow}}" class="vehicle-panel" style="height:430rpx;background-color:{{backgroundColor}}">
-  <!--省份简写键盘-->
-  <block wx:if="{{keyBoardType === 1}}">
-    <view class="vehicle-panel-row">
-      <view hover-class="vehicle-hover" hover-start-time="10" hover-stay-time="100" class='vehicle-panel-row-button' style="border:{{buttonBorder}}" wx:for="{{keyVehicle1}}" bindtap='vehicleTap' data-value="{{item}}" wx:for-index="idx" wx:key="idx">{{item}}</view>
-    </view>
-    <view class="vehicle-panel-row">
-      <view hover-class="vehicle-hover" hover-start-time="10" hover-stay-time="100" class='vehicle-panel-row-button' style="border:{{buttonBorder}}" wx:for="{{keyVehicle2}}" bindtap='vehicleTap' data-value="{{item}}" wx:for-index="idx" wx:key="idx">{{item}}</view>
-    </view>
-    <view class="vehicle-panel-row">
-      <view hover-class="vehicle-hover" hover-start-time="10" hover-stay-time="100" class='vehicle-panel-row-button' style="border:{{buttonBorder}}" wx:for="{{keyVehicle3}}" bindtap='vehicleTap' data-value="{{item}}" wx:for-index="idx" wx:key="idx">{{item}}</view>
-    </view>
-    <view class="vehicle-panel-row-last">
-      <view hover-class="vehicle-hover" hover-start-time="10" hover-stay-time="100" class='vehicle-panel-row-button vehicle-panel-row-button-last' bindtap='vehicleTap' data-value="{{item}}" wx:for="{{keyVehicle4}}" style="border:{{buttonBorder}}" wx:for-index="idx" wx:key="idx">{{item}}</view>
-    </view>
-  </block>
-  <!--英文键盘  -->
-  <block wx:else>
-    <view class="vehicle-panel-row">
-      <view hover-class="vehicle-hover" hover-start-time="10" hover-stay-time="100" class='vehicle-panel-row-button vehicle-panel-row-button-number' bindtap='vehicleTap' data-value="{{item}}" wx:for="{{keyNumber}}" style="border:{{buttonBorder}}" wx:for-index="idx" wx:key="item">{{item}}</view>
-    </view>
-    <view class="vehicle-panel-row">
-      <view hover-class="vehicle-hover" hover-start-time="10" hover-stay-time="100" class='vehicle-panel-row-button' style="border:{{buttonBorder}}" wx:for="{{keyEnInput1}}" bindtap='vehicleTap' data-value="{{item}}" wx:for-index="idx"  wx:key="idx">{{item}}</view>
-    </view>
-    <view class="vehicle-panel-row">
-      <view hover-class="vehicle-hover" hover-start-time="10" hover-stay-time="100" class='vehicle-panel-row-button' style="border:{{buttonBorder}}" wx:for="{{keyEnInput2}}" bindtap='vehicleTap' data-value="{{item}}" wx:for-index="idx" wx:key="idx">{{item}}</view>
-      <view hover-class="vehicle-hover" style="border:{{buttonBorder}}" hover-start-time="10" hover-stay-time="100" class='vehicle-panel-row-button vehicle-panel-row-button-img'>
-        <image src='./delete.svg' class='vehicle-en-button-delete' bindtap='vehicleTap' data-value="delete" mode='aspectFit'>删除</image>
+<view class="modal-box">
+  <view class="modal-wrapper">
+    <view class="modal-title">
+      <view class="titleWrapper"><text class="title-text">请录入车牌号</text></view>
+      <view class="iconWrapper">
+        <image class="close-icon" src="../images/close.png" bindtap="onCancel" />
       </view>
     </view>
-    <view class="vehicle-panel-row-last">
-      <view hover-class="vehicle-hover" hover-start-time="10" hover-stay-time="100" class='vehicle-panel-row-button vehicle-panel-row-button-last' bindtap='vehicleTap' style="border:{{buttonBorder}}" data-value="{{item}}" wx:for="{{keyEnInput3}}" wx:for-index="idx" wx:key="idx">{{item}}</view>
-      <view hover-class="vehicle-hover" style="border:{{buttonBorder}}" hover-start-time="10" hover-stay-time="100" class='vehicle-panel-row-button vehicle-panel-ok' bindtap='vehicleTap' data-value="ok">确定</view>
+
+    <view class="modal-content">
+      <view class="modal-input">
+        <block wx:for="{{8}}" wx:key="index">
+          <view data-index="{{index}}" class="input {{selectInputIndex===index?'activeInput':''}}"
+            bindtap='inputCarNum'>
+            <text>{{carNumArr[index] || ''}}</text>
+          </view>
+        </block>
+        <view class="line"></view>
+      </view>
+
     </view>
-  </block>
+    <view class="model-btn-group">
+      <button bindtap="onOk" class="btn confirm" disabled="{{btnDisabled}}">确认</button>
+    </view>
+  </view>
+  <!-- 车牌 -->
+  <view class='keyboard'>
+    <!-- 省键盘 -->
+    <view class="provinces" hidden='{{hiddenPro}}'>
+      <view class="pro-li fl" wx:for="{{provinceArr}}" wx:key="index" catchtap='proTap' data-province="{{item}}">
+        {{item}}</view>
+    </view>
+    <!-- 号码键盘	 -->
+    <view class="keyNums" hidden='{{hiddenStr}}'>
+      <view wx:if="{{selectInputIndex===1}}" class="row numRow">
+        <view class="pro-li  disabled" wx:for="{{numArr}}" wx:key="index" data-str="{{item}}">{{item}}</view>
+      </view>
+      <view wx:else class="row numRow">
+        <view class="pro-li " wx:for="{{numArr}}" wx:key="index" catchtap='strTap' data-str="{{item}}">{{item}}</view>
+      </view>
+      <view class="strOne row">
+        <view class="pro-li " wx:for="{{strArrOne}}" wx:key="index" catchtap='strTap' data-str="{{item}}">{{item}}
+        </view>
+      </view>
+      <view class="strTwo row">
+        <view class="pro-li " wx:for="{{strArrTwo}}" wx:key="index" catchtap='strTap' data-str="{{item}}">{{item}}
+        </view>
+      </view>
+      <view class="strThree row">
+        <view class="pro-li " wx:for="{{strArrThree}}" wx:key="index" catchtap='strTap' data-str="{{item}}">{{item}}
+        </view>
+        <view class='kb-icon pro-li' catchtap='backSpace'>
+          <image class='delete-icon' src="../images/delete.png" />
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="modal-cover"></view>
 </view>

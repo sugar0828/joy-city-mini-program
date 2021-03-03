@@ -7,22 +7,24 @@
   </van-grid>
 
   <view class="info-panel">
-    <text>可用免费泊车券和会员积分抵扣泊车费，在线支付完成后您有 <text style="font-size: 40rpx; font-weight: bold; color: #333; text-decoration: underline;">10</text> 分钟的取车出场时间。</text>
+    <text>可用免费泊车券和会员积分抵扣泊车费，在线支付完成后您有 <text
+        style="font-size: 40rpx; font-weight: bold; color: #333; text-decoration: underline;">10</text>
+      分钟的取车出场时间。</text>
   </view>
 
   <view class="full-width car-code-section">
     <view class="center-cls" style="margin-bottom: 50rpx;">车牌号:
-      <text class="car-code">{{carProvince}}{{carCity}}</text>
-      <text wx:if="{{carProvince}}">·</text>
-      <text class="car-code">{{carCodeEnd}}</text>
+      <text class="car-code">{{carnum}}</text>
     </view>
-    <van-cell title="选择车牌省份和城市(发证机关)" is-link bind:click="onShowCarProvince" />
+  </view>
+
+  <view class="container">
     <view>
-      <van-cell-group>
-        <van-field value="{{ carCodeEnd }}" clearable label="请输入车牌号" placeholder="请输入车牌号" bind:change="onChangeCarCode" maxlength="8" required error />
-       <!--  <van-field value="{{ carCodeEnd }}" clearable label="请输入车牌号" placeholder="请输入车牌号" bind:focus="onFocusCarCode" /> -->
-      </van-cell-group>
+      <button type="default" bindtap="inputCarNum" style="width: 78%;">点击输入车牌号</button>
     </view>
+    <block wx:if="{{showKeyboard}}">
+      <carKeyboard carNum="{{carNum}}" bind:onOk="onOk" bind:onCancel="onCancel" />
+    </block>
   </view>
 
   <view class="bottom-top-padding">
@@ -31,11 +33,11 @@
 
   <!-- <v-panel is-show="{{showKeyBoard}}" bindok="inputOk" binddelete="inputdelete" bindinputchange="inputChange" key-board-type="{{boardType}}" backgroundColor="#eee" /> -->
 
-<!--   <view class="bottom-top-padding">
+  <!--   <view class="bottom-top-padding">
     <button type="primary" bind:click="toParkRecord">有停车记录</button>
   </view> -->
 
-<!--   <view class="info-panel">
+  <!--   <view class="info-panel">
     <text>消费满58元可领3小时免费泊车券一张，请将购物小票完整拍照上传，客服验证通过后自动发送，商场营业期间（10点至22点）验证，估计需要5-10分钟，此券当日有效，单次停车限用一张（如有异常请到一楼客服台现场领取）。御龙湾会员上月累计积分超过4次，本月每天自动赠送3小时免费泊车券一张。</text>
   </view>
 
@@ -45,20 +47,16 @@
 
   <van-dialog id="van-dialog" />
   <van-toast id="van-toast" />
-  <van-popup
-    show="{{ showCarProvince }}"
-    round
-    position="bottom"
-    custom-style="height: 50%"
-    bind:close="onCloseCarProvince"
-  >
+  <van-popup show="{{ showCarProvince }}" round position="bottom" custom-style="height: 50%"
+    bind:close="onCloseCarProvince">
     <!-- 车牌选择 start -->
     <view class="car-popup-header">
       <text bindtap="onCancelCarProvince">取消</text>
       <text bindtap="onConfirmCarProvince">确定</text>
     </view>
     <view>
-      <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="onChangeCarProvinceAndCity">
+      <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}"
+        bindchange="onChangeCarProvinceAndCity">
         <picker-view-column class="card-select">
           <view wx:for="{{carProvinceList}}" wx:key="index" style="line-height: 50px">{{item}}</view>
         </picker-view-column>

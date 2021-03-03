@@ -3,7 +3,11 @@
 const app = getApp()
 import Dialog from '@vant/weapp/dialog/dialog'
 import Toast from '@vant/weapp/toast/toast'
-import { getFeeInfo, getOpenid, getMemberInfo } from './../../api/api'
+import {
+  getFeeInfo,
+  getOpenid,
+  getMemberInfo
+} from './../../api/api'
 
 let _carCodeProvince = ''
 let _carCodeCity = ''
@@ -12,8 +16,7 @@ Page({
   data: {
     motto: '欢迎进入扬州御龙湾商业广场',
     show: false,
-    actions: [
-      {
+    actions: [{
         name: '选项'
       },
       {
@@ -26,19 +29,33 @@ Page({
       }
     ],
     // car
-    carProvinceList: '苏浙京津沪陕冀豫云辽黑湘皖鲁新赣鄂桂甘晋蒙吉闽贵粤川青藏琼宁渝'.split(''),
-    carCityList: 'KABCDEFGHIJLMNOPQRSTUVWXYZ'.split(''),
     carProvince: '苏',
     carCity: 'K',
     showCarProvince: false,
     carCodeEnd: '',
-    showKeyBoard: false,
-    boardType: 1
+    boardType: 1,
+    carnum: '',
+    showKeyboard: false,
   },
-  onFocusCarCode() {
+  inputCarNum() {
+    this.setData({
+      showKeyboard: true
+    })
+  },
+  onOk(e) {
+    // console.log(e.detail, '输入的车牌号');
+    this.setData({
+      carnum: e.detail,
+      showKeyboard: false
+    })
+  },
+  onCancel() {
+    this.setData({
+      showKeyboard: false
+    })
+  },
+  /* onFocusCarCode() {
     const that = this
-    console.log('onFocusCarCode');
-    
     wx.hideKeyboard({
       complete: res => {
         console.log('hideKeyboard res', res)
@@ -86,22 +103,24 @@ Page({
     const val = e.detail.value
     _carCodeProvince = this.data.carProvinceList[val[0]]
     _carCodeCity = this.data.carCityList[val[1]]
-  },
+  }, */
   checkCost() {
-    if (!this.data.carCodeEnd) {
+    if (!this.data.carnum) {
       Dialog.alert({
         title: '提示',
-        message: '请输入正确的车牌号！'
+        message: '请输入有效车牌号！'
       })
-      return
+      return;
     }
-    const { carProvince, carCity, carCodeEnd } = this.data
-    wx.setStorageSync('carCodeEnd', carCodeEnd)
-    wx.setStorageSync('carProvince', carProvince)
-    wx.setStorageSync('carCity', carCity)
+    const {
+      carnum
+    } = this.data;
+    /*     wx.setStorageSync('carCodeEnd', carCodeEnd)
+        wx.setStorageSync('carProvince', carProvince)
+        wx.setStorageSync('carCity', carCity) */
 
     getFeeInfo({
-      plateNo: `${carProvince}${carCity}${carCodeEnd}`
+      plateNo: carnum
     }).then(res => {
       if (res.success) {
         wx.setStorageSync('parkInfo', res.data)
@@ -134,7 +153,7 @@ Page({
     })
   },
   //事件处理函数
-  bindViewTap: function() {
+  bindViewTap: function () {
     wx.navigateTo({
       url: '../logs/logs'
     })
@@ -145,10 +164,9 @@ Page({
     })
   },
   onClose() {
-    this.setData({ show: false });
-  },
-  onSelect(event) {
-    // console.log(event.detail);
+    this.setData({
+      show: false
+    });
   },
   /* getUserInfo: function(e) {
     app.globalData.userInfo = e.detail.userInfo
@@ -188,7 +206,7 @@ Page({
       }
     }) */
   },
-  onShow: function() {
+  onShow: function () {
     // 获取用户openid & 是否注册
     const user = wx.getStorageSync('user')
     if (user && user.cellphone) {
@@ -197,29 +215,19 @@ Page({
       所以这里要查询api来判断
       /o2oMember/info params token：openid
       接口逻辑：1 没有手机号是新用户要去注册 2 有手机号但是没有openid 表示在其他地方填写的信息依然要重新再小程序注册，注册的过程就是拿手机号和微信openid绑定 3 有手机号且有openid代表真正的注册会员才可以进入会员信息页面
-      */ 
-      
+      */
+
     } else { // 根据session是否过期获取新的loginCode
-        
+
     }
 
-    const carProvince = wx.getStorageSync('carProvince') || '苏'
+    /* const carProvince = wx.getStorageSync('carProvince') || '苏'
     const carCity = wx.getStorageSync('carCity') || 'K'
     const carCodeEnd = wx.getStorageSync('carCodeEnd') || ''
     this.setData({
       carProvince,
       carCity,
       carCodeEnd
-    })
-
+    }); */
   },
-  inputOk() {
-    console.log('input ok');
-  },
-  inputdelete() {
-    console.log('input delete');
-  },
-  inputChange(value) {
-    console.log(value);
-  }
 })

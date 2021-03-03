@@ -1,58 +1,285 @@
-:host {
-  width: 100%;
-}
-.vehicle-panel {
+/* 键盘 */
+.keyboard {
   width: 100%;
   position: fixed;
   bottom: 0;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
+  left: 0;
   z-index: 1000;
+  background-color: rgba(210, 213, 219, 90);
 }
-.vehicle-panel-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+
+.fl {
+  float: left
 }
-.vehicle-panel-row-last{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.vehicle-panel-row-button {
-  background-color: #fff;
-  margin: 5rpx;
-  padding: 5rpx;
-  width: 80rpx;
-  height: 80rpx;
+
+.carnum {
   text-align: center;
-  line-height: 80rpx;
-  border-radius: 10rpx;
+  height: 88rpx
 }
-.vehicle-panel-row-button-number {
-  background-color: #eee;
+
+.tel {
+  border-bottom: 2rpx solid #ddd;
+  height: 100rpx;
+  line-height: 100rpx;
 }
-.vehicle-panel-row-button-last {
-  width: 90rpx;
-  height: 90rpx;
-  line-height: 90rpx;
+
+.provinces {
+  overflow: hidden;
+  padding-top: 20rpx;
 }
-.vehicle-hover {
-  background-color: #ccc;
+
+.pro-li {
+  font-size: 32rpx;
+  color: #353535;
+  height: 76rpx;
+  width: 62rpx;
+  line-height: 76rpx;
+  text-align: center;
+  margin-left: 12rpx;
+  margin-bottom: 20rpx;
+  background-color: #fff;
+  box-shadow: 0px 1rpx 2rpx 0 #979797;
+  border-radius: 5px;
+  flex: 1
 }
-.vehicle-panel-row-button-img {
+
+.keyNums .disabled {
+  background-color: #F7F7F7;
+  color: #CCC
+}
+
+.keyNums {
+  overflow: hidden;
+  padding-top: 20rpx;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+}
+
+.keyNums .row {
+  display: flex;
+}
+
+.keyNums .numRow {
+  padding: 0 10rpx;
+}
+
+.keyNums .strOne {
+  padding: 0 10rpx;
+}
+
+.keyNums .strOne .strOneItem {
+  flex: 1
+}
+
+.keyNums .strTwo {
+  padding: 0 40rpx;
+}
+
+.keyNums .strOne .strTwoItem {
+  flex: 1
+}
+
+.keyNums .strThree {
+  padding-left: 116rpx;
+  padding-right: 10rpx;
+}
+
+.keyNums .strOne .strThreeItem {
+  flex: 1
+}
+
+.keyNums .strOne .strThreeItem:nth-child(7) {
+  margin-left: 100px
+}
+
+.keyNums .pro-li:nth-child(16) {
+  color: red
+}
+
+.keyNums .strThree .kb-del {
+  margin-left: 12rpx
+}
+
+.keyNums .strThree .kb-icon {
+  flex: 1.5;
+  background: #ABB3BD;
+  margin-left: 40rpx;
+}
+
+/* modal样式 */
+
+.modal-box {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
   align-items: center;
+  justify-content: center;
 }
-.vehicle-en-button-delete {
-  width: 55rpx;
-  height: 85rpx;
+
+.modal-wrapper {
+  margin: 30% 30rpx;
+  height: 380rpx;
+  padding: 30rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  z-index: 300;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  justify-content: space-between;
+  overflow: hidden;
+  text-align: left;
 }
-.vehicle-panel-ok {
-  background-color: #0F4BA1;
+
+.modal-wrapper .model-btn-group {
+  display: flex;
+  box-sizing: border-box;
+  font-size: 32rpx;
+}
+
+.model-btn-group view {
+  width: 50%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.model-btn-group .btn {
+  flex: 1;
+  font-size: 18px
+}
+
+.model-btn-group .cancel {
+  color: #999;
+}
+
+.model-btn-group .confirm {
   color: #fff;
-  width: 150rpx;
-  height: 80rpx;
+  background-color: #ff5000;
+}
+
+.model-btn-group .confirm.active {
+  opacity: 1;
+}
+
+.modal-cover {
+  width: 100%;
+  background-color: #242424;
+  opacity: 0.5;
+  z-index: 299;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  overflow: hidden;
+}
+
+.modal-input {
+  display: flex;
+}
+
+.modal-input .input {
+  border: 1px solid #979797;
+  margin-right: 6rpx;
+  border-radius: 3px;
+  flex: 1;
+  text-align: center;
+  padding: 8px;
+  height: 22px;
+}
+
+.modal-input .input:nth-child(1) {
+  border-right-width: 0;
+  margin-right: 0;
+  position: relative;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.modal-input .input:nth-child(1)::after {
+  content: "";
+  position: absolute;
+  right: -1px;
+  width: 1px;
+  height: 20px;
+  background-color: #979797;
+  z-index: -10
+}
+
+
+.modal-input .input:nth-child(2) {
+  position: relative;
+  border-left-width: 0;
+  margin-right: 20rpx;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.modal-input .input:nth-child(2)::after {
+  content: "";
+  position: absolute;
+  right: -16rpx;
+  top: 45%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #979797
+}
+
+.modal-input .input:nth-child(8) {
+  border: 1px dashed #979797;
+}
+
+.modal-input .activeInput {
+  border-radius: 3px !important;
+  border: 1px solid #FF5000 !important
+}
+
+.modal-input .text {
+  text-align: right;
+  color: #c5c5c5;
+  font-size: 28rpx;
+}
+
+.modal-placeholder-class {
+  color: #c5c5c5;
+}
+
+.modal-title {
+  display: flex;
+  font-size: 20px;
+  color: #333333
+}
+
+.titleWrapper {
+  flex: 1;
+}
+
+.title-text {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.iconWrapper {
+  flex: 1;
+  text-align: right;
+}
+
+.close-icon {
+  width: 35rpx;
+  height: 35rpx;
+}
+
+.delete-icon {
+  width: 50rpx;
+  height: 50rpx;
+  margin-top: 14rpx;
 }
