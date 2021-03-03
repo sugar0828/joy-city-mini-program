@@ -17,7 +17,6 @@
         </block>
         <view class="line"></view>
       </view>
-
     </view>
     <view class="model-btn-group">
       <button bindtap="onOk" class="btn confirm" disabled="{{btnDisabled}}">确认</button>
@@ -49,10 +48,16 @@
       <view class="strThree row">
         <view class="pro-li " wx:for="{{strArrThree}}" wx:key="index" catchtap='strTap' data-str="{{item}}">{{item}}
         </view>
+      </view>
+
+      <view class="strFour row">
+        <view class="pro-li " wx:for="{{strArrFour}}" wx:key="index" catchtap='strTap' data-str="{{item}}">{{item}}
+        </view>
         <view class='kb-icon pro-li' catchtap='backSpace'>
           <image class='delete-icon' src="../images/delete.png" />
         </view>
       </view>
+
     </view>
   </view>
   <view class="modal-cover"></view>

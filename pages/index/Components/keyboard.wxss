@@ -80,8 +80,8 @@
 }
 
 .keyNums .strThree {
-  padding-left: 116rpx;
-  padding-right: 10rpx;
+  padding-left: 70rpx;
+  padding-right: 60rpx;
 }
 
 .keyNums .strOne .strThreeItem {
@@ -99,11 +99,14 @@
 .keyNums .strThree .kb-del {
   margin-left: 12rpx
 }
-
-.keyNums .strThree .kb-icon {
+.keyNums .strFour {
+  margin-left: 100rpx;
+}
+.keyNums .strFour .kb-icon {
   flex: 1.5;
   background: #ABB3BD;
   margin-left: 40rpx;
+  margin-right: 20rpx;
 }
 
 /* modal样式 */
@@ -119,7 +122,7 @@
 }
 
 .modal-wrapper {
-  margin: 30% 30rpx;
+  margin: 20% 30rpx;
   height: 380rpx;
   padding: 30rpx;
   background-color: #fff;
